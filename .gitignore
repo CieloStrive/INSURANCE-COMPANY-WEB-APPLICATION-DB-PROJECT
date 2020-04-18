@@ -1,0 +1,26 @@
+
+# Created by https://www.gitignore.io/api/django
+# Edit at https://www.gitignore.io/?templates=django
+
+### Django ###
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+
+#写如下DIY路径可以控制以下目录文件不上传：系统静态文件很多显然不要上传，还有私密文件
+
+static/
+#portfolio/static_pic
+
+
+# If your build process includes running collectstatic, then you probably don't need or want to include staticfiles/
+# in your Git repository. Update and uncomment the following line accordingly.
+# <django-project-name>/staticfiles/
+
+
+# End of https://www.gitignore.io/api/django
