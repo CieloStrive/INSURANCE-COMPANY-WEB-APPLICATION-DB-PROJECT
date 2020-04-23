@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'wds',
+    'account',
 ]
 
 MIDDLEWARE = [
@@ -87,7 +88,7 @@ DATABASES = {
         'NAME': 'final',
         'USER': 'root',
         'PASSWORD': '970108',
-        'HOST': '',
+        'HOST': 'localhost',
         'PORT': '3306',
     }
 }
@@ -129,4 +130,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+
 STATIC_URL = '/static/'
+#收集到的静态文件放到哪：
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#告诉程序去哪收集静态文件
+STATIC_DIRS = [
+    os.path.join(BASE_DIR, 'wds/static'),
+]

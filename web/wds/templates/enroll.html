@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Enroll</title>
+</head>
+<body>
+    {% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+    <br>
+    {% block content %}
+        <div class="container">
+            <h1>Home Insurance:</h1>
+            <br>
+            <h2>Description:</h2>
+            <br>
+            <form method="POST" action=" {% url 'login' %} " align="center">
+                <!--action是指将数据发送到哪，还是发送到本网站由服务器去处理-->
+                {%csrf_token%} <!--protect from cross site request forgery-->
+                How many houses you want to inure:
+                <br>
+                <input type="password" name = "password">
+                <br>
+                <input class="btn-primary" type="submit" value = "Login">
+            </form>
+            <a href="{% url 'home_ins' %}" class="btn btn-primary">Enroll</a>
+            <br>
+            <br>
+            <h1>Auto Insurance:</h1>
+            <br>
+            <h2>Description:</h2>
+            <br>
+            <a href="{% url 'auto_ins' %}" class="btn btn-primary">Enroll</a>
+        </div>
+    {% endblock content %}
+</body>
+</html>

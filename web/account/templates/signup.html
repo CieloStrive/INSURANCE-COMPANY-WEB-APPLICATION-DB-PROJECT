@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Sign up</title>
+</head>
+
+{% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+<br>
+{% block content %}
+
+<h2 align="center" >Sign Up Your Account</h2>
+<br>
+<form method="POST" action=" {% url 'signup' %} " align="center">
+    <!--action是指将数据发送到哪，还是发送到本网站由服务器去处理-->
+    {%csrf_token%} <!--protect from cross site request forgery-->
+    User name:
+    <br>
+    <input type="text" name = "username">
+    <br>
+    {{ check1 }}
+    <br>
+    Password:
+    <br>
+    <input type="password" name = "password1">
+    <br>
+    {{ check2 }}
+    <br>
+    Confirm password:
+    <br>
+    <input type="password" name = "password2">
+    <br>
+    <br>
+    <input class="btn-primary" type="submit" value = "sign up">
+</form>
+
+{% endblock content %}

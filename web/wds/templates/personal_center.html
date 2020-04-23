@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Account</title>
+</head>
+<body>
+    {% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+    <br>
+
+    {% block content %}
+        <h1 align="center">Personal Information</h1>
+        <br>
+        <br>
+        <div class="container" >
+            Customer ID: {{customer.customer_id}}
+            <br>
+            First Name:  {{customer.first_name}}
+            <br>
+            Last Name:   {{customer.last_name}}
+            <br>
+            Gender:   {{customer.gender}}
+            <br>
+            Marital Status:   {{customer.marital_status}}
+            <br>
+            Customer Type:   {{customer.customer_type}}
+            <br>
+            City:   {{customer.city}}
+            <br>
+            State:   {{customer.state}}
+            <br>
+            Street:   {{customer.street}}
+            <br>
+            Zip:   {{customer.zip}}
+            <br>
+            <a href="{% url 'update_info'%}" class="btn btn-primary my-2">Update</a>
+
+        </div>
+
+    {% endblock content %}
+</body>
+</html>
