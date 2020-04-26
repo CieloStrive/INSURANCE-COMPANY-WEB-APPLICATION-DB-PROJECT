@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Home Info</title>
+</head>
+<body>
+    {% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+    {% load crispy_forms_tags %}
+    <br>
+    {% block content %}
+        <div class="container">
+            <h2 align="center">Please fill up home info</h2>
+            <form method="POST" action="{% url 'example' %}">
+                {{ form|crispy }}
+                <br>
+                <button class="btn btn-outline-info" type="submit">Save/Add</button>
+                <br>
+                <small>No more house to add? Click Save/Add -> Next Step</small>
+                <br>
+                <div class="border-top pt-3">
+                    <a href="{% url 'home_record' %}" class="btn btn-primary">Next Step</a>
+                </div>
+            </form>
+        </div>
+    {% endblock content %}
+</body>
+</html>

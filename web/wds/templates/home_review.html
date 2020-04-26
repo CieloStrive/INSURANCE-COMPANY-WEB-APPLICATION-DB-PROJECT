@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>WDS| Home Information</title>
+    <title>WDS| Home Information Review</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 </head>
@@ -12,9 +12,9 @@
     {% block content %}
 
     <div class="container">
-        <h2 align="center">Please fill up basic information</h2>
+        <h2 align="center">Basic Home Information</h2>
         <br>
-        <form id="homeForm" method="post" action="{% url 'insured_home' %}">
+        <form method="post" action="{% url 'home_review' %}">
             {% csrf_token %}
             <div class="home id">
                 Home ID : <input type="number" step="1" min=0 max=9999999999 name = "home_id" required/>
@@ -41,7 +41,7 @@
             <br>
             <div class="home type">
                 <label for="home_type">Home Type: </label>
-                <select name="home_type" id="home_type" required>
+                <select name="home_type" id="home_type">
                     <option value="S">single family</option>
                     <option value="M">multi family</option>
                     <option value="C">condominium</option>
@@ -77,20 +77,20 @@
             </div>
             <br>
             <div class="basement">
-                <label for="basement">Does your house have basement? </label>
-                <select name="basement" id="basement" required>
-                    <option value=1>Yes</option>
-                    <option value=0>No</option>
-                </select>
+                Does your house have basement? <input type="text" list="b" name="basement" required/>
+                <datalist id="b">
+                    <option value=1></option>
+                    <option value=0></option>
+                </datalist>
             </div>
             <br>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Save and Add</button>
+                <button class="btn btn-outline-info" type="submit">Next Step</button>
             </div>
             <br>
             <div class="border-top pt-3">
                 <small class="text-muted">
-                    Your house has been insured before? <a class="ml-2" href="#">Purchase Again</a>
+                    Your house has been insured before? <a class="ml-2" href="{% url 'home_record' %}">Purchase Again</a>
                 </small>
             </div>
         </form>
@@ -112,7 +112,6 @@
     <script>
         parseFloat($("#hpv").val()).toFixed(2)
     </script>
-
 
     {% endblock content %}
 </body>

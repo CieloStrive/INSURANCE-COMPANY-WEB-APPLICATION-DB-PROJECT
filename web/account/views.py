@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib import auth
+from django.contrib import auth, messages
 import wds.models as models
 
 
@@ -18,7 +18,8 @@ def signup(request):
         except User.DoesNotExist:
             if password1 == password2:
                 User.objects.create_user(username=username, password=password1)
-                return redirect('signup_success')
+                messages.success(request, f'Your account has been created! You are now able to log in')
+                return redirect('home_page')
             else:
                 return render(request, 'signup.html', {'check2': 'Two passwords do not match'})
         # 如果用import的user的方法能查到同名这条，证明用户名重复，不存在会报错，我们不能让它报错，用try，

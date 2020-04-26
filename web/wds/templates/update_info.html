@@ -23,8 +23,8 @@
                 </div>
                 <br>
                 <div class="gender">
-                    <label for="gender">Gender:</label>
-                    <select id="gender">
+                    <label for="gender">Gender: </label>
+                    <select name="gender" id="gender">
                         <option value=""></option>
                         <option value="M">Male</option>
                         <option value="F">Female</option>
@@ -66,7 +66,9 @@
                     Zip: <input type="text" value="{{customer.zip}}" name = "zip">
                 </div>
                 <br>
-                <input class="btn-primary" type="submit" value = "Update">
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Update</button>
+                </div>
             </form>
     </div>
     {% endblock content %}
