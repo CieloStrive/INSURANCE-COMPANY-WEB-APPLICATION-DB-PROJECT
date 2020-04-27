@@ -9,6 +9,8 @@
     <br>
     {% block content %}
         <div class="container">
+            <p style="color:red">{{info}}</p>
+            <br>
             <h1>Home Insurance:</h1>
             <br>
             <h2>Description:</h2>
@@ -22,7 +24,7 @@
             <br>
             <a href="{% url 'auto_ins' %}" class="btn btn-primary">Enroll</a>
             <br>
-            <br>
+            <p style="color:blue">Please register drivers into our database system first!</p>
             <a href="{% url 'register_driver' %}" class="btn btn-primary">Register driver</a>
         </div>
     {% endblock content %}

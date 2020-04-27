@@ -17,7 +17,7 @@
         <small>Follow procedures to add vehicle(s) and driver(s)</small>
         <br>
 
-        <form id="driverForm" method="post" action="{% url 'insured_driver' %}">
+        <form id="driverForm" method="post" action="{% url 'pa_insured_driver' %}">
             {% csrf_token %}
             <div class="license_num">
                 License: <input type="text" name = "license_num" id="license_num"  maxlength="16"required/>
@@ -31,12 +31,6 @@
             </div>
             <br>
         </form>
-
-        <div class="border-top pt-3">
-            <small class="text-muted">
-                If you come from filling driver license page,you can click<a class="ml-2" href="{% url 'pa_auto_ins' %}">Purchase Again</a>after register all drivers.
-            </small>
-        </div>
     </div>
 
     {% endblock content %}

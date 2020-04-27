@@ -15,7 +15,7 @@
         <h2 align="center">Please fill up basic information</h2>
         <br>
 
-        <form method="post" action="{% url 'auto_ins' %}">
+        <form method="post" action="{% url 'pa_auto_ins' %}">
             {% csrf_token %}
 
             <div class="start date">
@@ -47,11 +47,6 @@
         </form>
 
         <br>
-        <div class="border-top pt-3">
-            <small class="text-muted">
-                Your vehicle has been insured before? <a class="ml-2" href="{% url 'pa_auto_ins' %}">Purchase Again</a>
-            </small>
-        </div>
     </div>
 
     {% endblock content %}

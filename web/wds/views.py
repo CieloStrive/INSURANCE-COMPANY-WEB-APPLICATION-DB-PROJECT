@@ -74,6 +74,12 @@ def update_info(request):
 
 @login_required
 def enroll(request):
+    current_user = request.user
+    customer = models.Customer.objects.filter(customer_id=current_user.id)
+    if customer.exists():
+        pass
+    else:
+        return render(request, 'error.html')
     return render(request, 'enroll.html')
 
 
@@ -315,9 +321,111 @@ def vehicle_success_page(request):
         return render(request, 'vehicle_success_page.html')
     return render(request, 'insured_driver.html')
 
+@login_required
 def insured_driver(request):
     if request.method == 'GET':
         return render(request,'insured_driver.html')
+    if request.method == 'POST':
+        license_num = request.POST['license_num']
+        vin = request.session.get('vin')
+
+        if len(license_num) != 16:
+            return render(request,'insured_driver.html',{'checklicense':'Invalid license length!'})
+
+        lic = models.Driver.objects.filter(license_num=license_num)
+        if lic.exists(): #do nothing
+            pass
+        else:
+            return render(request, 'insured_driver.html', {'checklicense': 'This driver is not registered, please register at Enroll page!'})
+
+        temp_id = random.randint(1, 1000000000)  # be careful with range of int
+        while models.VehicleDriver.objects.filter(v_d_id=temp_id):
+            temp_id = random.randint(1, 1000000000)
+
+        models.VehicleDriver.objects.create(
+            license_num = models.Driver.objects.filter(license_num=license_num).first(),
+            vin = models.InsuredVehicle.objects.filter(vin=vin).first(),
+            v_d_id=temp_id,
+        )
+        messages.success(request, 'Your successfully bind a driver to your current vehicle!')
+        return redirect('driver_success_page')
+
+@login_required
+def driver_success_page(request):
+    if request.method == 'GET':
+        return render(request, 'driver_success_page.html')
+    return render(request, 'insured_driver.html')
+
+@login_required
+def AutoOrderListView(request):
+    return render(request,'auto_order_info.html')
+
+####################################Purchase Again######################################################
+
+def pa_auto_ins(request):
+    current_user = request.user
+    if request.method == 'GET':
+        return render(request, 'pa_auto_ins.html')
+    if request.method == 'POST':
+        start_date = request.POST['start_date']
+        end_date = request.POST['end_date']
+        premium_amount = request.POST['premium_amount']
+
+        temp_id = randString(10)
+        while models.HomeInsurance.objects.filter(insurance_id=temp_id) or \
+                models.AutoInsurance.objects.filter(insurance_id=temp_id):
+            temp_id = randString(10)
+
+        models.AutoInsurance.objects.create(
+            insurance_id=temp_id,  # need to be modified later
+            customer_id=current_user.id,
+            start_date=start_date,
+            end_date=end_date,
+            premium_amount=premium_amount,
+            insurance_status='C',  # need to be modified later
+        )
+        # use session
+        request.session['ins_id'] = temp_id
+    return redirect('pa_insured_vehicle')
+
+def pa_insured_vehicle(request):
+    current_user = request.user
+    if request.method == 'GET':
+        return render(request, 'pa_insured_vehicle.html')
+    if request.method == 'POST':
+        vin = request.POST['vin']
+        # use session
+        request.session['vin'] = vin
+
+        vehicle = models.InsuredVehicle.objects.filter(vin=vin)
+        if vehicle.exists():
+            pass
+        else:
+            return render(request, 'pa_insured_vehicle.html', {'check3': 'This vehicle is not insured before,please restart enrollment for insured vehicle and go to regular procedure for new vehicle'})
+
+        # session
+        ins_id = request.session.get('ins_id')
+        temp_id = random.randint(1, 1000000000)  # be careful with range of int
+        while models.AutoRecord.objects.filter(a_r_id=temp_id):
+            temp_id = random.randint(1, 1000000000)
+
+        models.AutoRecord.objects.create(
+            vin = models.InsuredVehicle.objects.filter(vin=vin).first(),
+            insurance = models.AutoInsurance.objects.filter(insurance_id=ins_id).first(),
+            a_r_id = temp_id,
+        )
+        messages.success(request, 'Your successfully added a vehicle to your current insurance plan!')
+        return redirect('pa_vehicle_success_page')
+
+def pa_vehicle_success_page(request):
+    if request.method == 'GET':
+        return render(request, 'pa_vehicle_success_page.html')
+    return render(request, 'pa_insured_driver.html')
+
+@login_required
+def pa_insured_driver(request):
+    if request.method == 'GET':
+        return render(request,'pa_insured_driver.html')
     if request.method == 'POST':
         license_num = request.POST['license_num']
         vin = request.session.get('vin')
@@ -341,14 +449,10 @@ def insured_driver(request):
             v_d_id=temp_id,
         )
         messages.success(request, 'Your successfully bind a driver to your current vehicle!')
-        return redirect('driver_success_page')
+        return redirect('pa_driver_success_page')
 
 @login_required
-def driver_success_page(request):
+def pa_driver_success_page(request):
     if request.method == 'GET':
-        return render(request, 'driver_success_page.html')
-    return render(request, 'insured_driver.html')
-
-@login_required
-def AutoOrderListView(request):
-    return render(request,'auto_order_info.html')
+        return render(request, 'pa_driver_success_page.html')
+    return render(request, 'pa_insured_driver.html')
