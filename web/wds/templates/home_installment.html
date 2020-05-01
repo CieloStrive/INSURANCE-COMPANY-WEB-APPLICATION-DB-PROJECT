@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Invoice</title>
+</head>
+
+{% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+<br>
+{% block content %}
+
+<h2 align="center" >Invoice By Month</h2>
+<br>
+<form method="POST" action=" {% url 'home_installment' %} " align="center">
+    <!--action是指将数据发送到哪，还是发送到本网站由服务器去处理-->
+    {%csrf_token%} <!--protect from cross site request forgery-->
+    <div class="container">
+        <h2>This is the invoice that you should pay this time: </h2>
+        {% for time in thistime %}
+            <article class="media content-section">
+                <hr style="color:black">
+                <div class="media-body">
+                    <p align="left" class="article-content">Insurance Number: {{ time.insurance_id }}</p>
+                    <p align="left" class="article-content">Invoice Number: {{ time.invoice_id }}</p>
+                    <p align="left" class="article-content">Invoice Date: {{ time.invoice_date }}</p>
+                    <p align="left" class="article-content">Payment Due Date: {{ time.payment_due_date }}</p>
+                    <p align="left" class="article-content">Invoice Amount: {{ time.invoice_amount }} US dollars</p>
+                    <br>
+                    <div class="border-top pt-3">
+                        <a href="{% url 'payment_home' invoice_id=time.invoice_id %}" class="btn btn-primary">Pay This Invoice</a>
+                    </div>
+                    <br>
+                </div>
+                <hr style="color:black">
+            </article>
+        {% endfor %}
+        <h2>This is all your invoices: </h2>
+        {% for content in contents %}
+            <article class="media content-section">
+                <hr style="color:black">
+                <div class="media-body">
+                    <br>
+                    <p align="left" class="article-content">Insurance Number: {{ content.insurance_id }}</p>
+                    <p align="left" class="article-content">Invoice Number: {{ content.invoice_id }}</p>
+                    <p align="left" class="article-content">Invoice Date: {{ content.invoice_date }}</p>
+                    <p align="left" class="article-content">Payment Due Date: {{ content.payment_due_date }}</p>
+                    <p align="left" class="article-content">Invoice Amount: {{ content.invoice_amount }} US dollars</p>
+                    <br>
+                </div>
+                <hr style="color:black">
+            </article>
+        {% endfor %}
+        <br>
+    </div>
+</form>
+
+
+{% endblock content %}

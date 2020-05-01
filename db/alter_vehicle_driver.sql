@@ -99,4 +99,6 @@ ALTER TABLE vehicle_driver
     ADD CONSTRAINT vhcl_drv_vhcl_fk FOREIGN KEY ( vin )
         REFERENCES insured_vehicle ( vin );
 
+alter table vehicle_driver
+add column ins_id  VARCHAR(10) ;
 

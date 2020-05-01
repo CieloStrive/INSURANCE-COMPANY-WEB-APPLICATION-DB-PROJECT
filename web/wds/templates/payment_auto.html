@@ -11,7 +11,7 @@
 
 <h2 align="center" >Payment</h2>
 <br>
-<form method="POST" action=" {% url 'payment_home' invoice_id=invoice_id %} " align="center">
+<form method="POST" action=" {% url 'payment_auto' invoice_id=invoice_id %} " align="center">
     <!--action是指将数据发送到哪，还是发送到本网站由服务器去处理-->
     {%csrf_token%} <!--protect from cross site request forgery-->
     <div class="container">

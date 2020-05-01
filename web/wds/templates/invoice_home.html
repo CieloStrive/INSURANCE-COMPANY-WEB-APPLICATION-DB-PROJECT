@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Invoice</title>
+</head>
+
+{% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+<br>
+{% block content %}
+
+<h2 align="center" >Invoice</h2>
+<br>
+<form method="POST" action=" {% url 'invoice_home' %} " align="center">
+    <!--action是指将数据发送到哪，还是发送到本网站由服务器去处理-->
+    {%csrf_token%} <!--protect from cross site request forgery-->
+    <div class="container">
+        <article class="media content-section">
+            <div class="media-body">
+                <p align="left" class="article-content">Insurance Number: {{ insurance_id }}</p>
+                <p align="left" class="article-content">Invoice Number: {{ invoice_id }}</p>
+                <p align="left" class="article-content">Invoice Date: {{ invoice_date }}</p>
+                <p align="left" class="article-content">Payment Due Date: {{ payment_due_date }}</p>
+                <p align="left" class="article-content">Invoice Amount: {{ invoice_amount }} US dollars</p>
+            </div>
+        </article>
+        <br>
+        <div class="border-top pt-3">
+            <a href="{% url 'payment_home' invoice_id=invoice_id %}" class="btn btn-primary">Pay This Invoice</a>
+        </div>
+        <br>
+    </div>
+</form>
+
+
+{% endblock content %}

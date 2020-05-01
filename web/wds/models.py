@@ -283,6 +283,7 @@ class VehicleDriver(models.Model):
     license_num = models.ForeignKey(Driver, models.DO_NOTHING, db_column='license_num')
     vin = models.ForeignKey(InsuredVehicle, models.DO_NOTHING, db_column='vin')
     v_d_id = models.IntegerField(primary_key=True)
+    ins_id = models.CharField(max_length=10, blank=True, null=True)
 
     class Meta:
         managed = False

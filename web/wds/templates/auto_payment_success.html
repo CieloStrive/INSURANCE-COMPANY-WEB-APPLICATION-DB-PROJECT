@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Payment</title>
+</head>
+
+{% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+<br>
+{% block content %}
+
+<h2 align="center" >Payment</h2>
+<br>
+<form method="POST" action=" {% url 'home_payment_success' %} " align="center">
+    <!--action是指将数据发送到哪，还是发送到本网站由服务器去处理-->
+    {%csrf_token%} <!--protect from cross site request forgery-->
+    <div class="container">
+        <br>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Home</button>
+        </div>
+        <br>
+    </div>
+
+</form>
+
+{% endblock content %}

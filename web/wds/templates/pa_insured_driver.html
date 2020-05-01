@@ -20,8 +20,8 @@
         <form id="driverForm" method="post" action="{% url 'pa_insured_driver' %}">
             {% csrf_token %}
             <div class="license_num">
-                License: <input type="text" name = "license_num" id="license_num"  maxlength="16"required/>
-                {{checklicense}}
+                License: <input type="text" name = "license_num" id="license_num"  maxlength="16" required/>
+                <p style="color:red">{{checklicense}}</p>
                 <br>
                 <small>Please fill up with license of 16 characters</small>
             </div>

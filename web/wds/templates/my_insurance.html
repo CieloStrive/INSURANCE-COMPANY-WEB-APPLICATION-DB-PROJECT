@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| My Insurance</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+<body>
+    {% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+    <br>
+    {% block content %}
+    <div class="container">
+        <h1>Please select an insurance type to query</h1>
+        <br>
+        <br>
+        <a href="{% url 'home_query' %}" class="btn btn-primary">Home Insurance</a>
+        <br>
+        <br>
+        <a href="{% url 'auto_query' %}" class="btn btn-primary">Auto Insurance</a>
+
+    </div>
+    {% endblock content %}
+</body>
+
+</html>

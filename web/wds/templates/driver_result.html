@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Query Result</title>
+</head>
+
+{% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+<br>
+{% block content %}
+
+<h1 align="center" >Insured Drivers</h1>
+<br>
+<br>
+<div class="container">
+    {% for driver in drivers %}
+            <article class="media content-section">
+                <div class="media-body">
+                    <p align="left" class="article-content">License Number: {{ driver.license_num }}</p>
+                    <p align="left" class="article-content">First Name: {{ driver.f_name }}</p>
+                    <p align="left" class="article-content">Last Name: {{ driver.f_name }}</p>
+                    <p align="left" class="article-content">Birth Date: {{ driver.birthdate }}</p>
+                </div>
+            </article>
+        {% endfor %}
+    <a href="{%url 'my_insurance' %}" class="btn btn-primary">Query More</a>
+</div>
+
+
+{% endblock content %}

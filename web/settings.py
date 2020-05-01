@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'wds',
     'account',
     'crispy_forms',
+    'stripe',
 ]
 
 MIDDLEWARE = [
@@ -87,8 +88,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'final',
-        'USER': 'root',
-        'PASSWORD': '970108',
+        'USER': 'dbadmin',
+        'PASSWORD': 'stephane',
         'HOST': 'localhost',
         'PORT': '3306',
     }

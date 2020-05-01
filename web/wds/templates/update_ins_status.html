@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Update Ins</title>
+</head>
+<body>
+    {% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+    <br>
+
+    {% block content %}
+        <h1 align="center">Update Insurance Status</h1>
+        <br>
+        <br>
+        <div class="container"  align="center">
+            <h1>Insurance status of all customers are updated! </h1>
+            <br>
+            <br>
+            <a href="{% url 'home_page'%}" class="btn btn-primary my-2">Back</a>
+
+        </div>
+
+    {% endblock content %}
+</body>
+</html>

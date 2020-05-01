@@ -19,11 +19,11 @@
             {% csrf_token %}
 
             <div class="start date">
-                Start Date: <input type="date" name = "start_date" id="s" required/>
+                Start Date: <input type="date" name="start_date" id="s" required/>
             </div>
             <br>
             <div class="end date">
-                End Date: <input type="date"  name = "end_date" id="e" required>
+                End Date: <input type="date"  name="end_date" id="e" required>
                 <br>
                 <small>We strongly recommend you to...</small>
             </div>
@@ -45,14 +45,34 @@
                 <button class="btn btn-outline-info" type="submit">Save and Next</button>
             </div>
         </form>
-
         <br>
         <div class="border-top pt-3">
-            <small class="text-muted">
-                Your vehicle has been insured before? <a class="ml-2" href="{% url 'pa_auto_ins' %}">Purchase Again</a>
-            </small>
+            <small class="text-muted">Your vehicle has been insured before? </small>
+            <a class="btn btn-outline-info" href="pa_auto_ins">Purchase Again</a>
+
         </div>
     </div>
+
+    <script>
+        var dtToday = new Date();
+
+        var month = dtToday.getMonth() + 1;
+        var day = dtToday.getDate();
+        var year = dtToday.getFullYear();
+        if(month < 10)
+            month = '0' + month.toString();
+        if(day < 10)
+            day = '0' + day.toString();
+
+        var minDate = year + '-' + month + '-' + day;
+        $('#s').attr('min', minDate);
+    </script>
+
+    <script>
+        $("#s").change(function(){
+            $('#e').attr('min', $('#s').val());
+        });
+    </script>
 
     {% endblock content %}
 </body>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Query Auto</title>
+</head>
+{% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+<br>
+{% block content %}
+<h1 align="center">Query Auto Insurance</h1>
+<br>
+<h2 align="center" >Here are insurance ID of yours</h2>
+<br>
+
+<div class="container" align="center">
+    <h2><p style="color:red">{{error}}</p></h2>
+    <br>
+    {% for auto in autos %}
+            <article class="media content-section">
+                <div class="media-body">
+                    <p align="center" class="article-content">{{ auto }}</p>
+                </div>
+            </article>
+    {% endfor %}
+</div>
+<br>
+<h2 align="center" >Please input insurance ID you want to search</h2>
+<br>
+<form method="POST" action=" {% url 'auto_query' %} " align="center">
+    <!--action是指将数据发送到哪，还是发送到本网站由服务器去处理-->
+    {%csrf_token%} <!--protect from cross site request forgery-->
+    <div class="container">
+        <input type="text" name="ins_id" required>
+        <button class="btn btn-outline-info" type="submit">Search</button>
+    </div>
+</form>
+
+{% endblock content %}

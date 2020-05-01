@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Query Result</title>
+</head>
+
+{% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+<br>
+{% block content %}
+
+<h1 align="center" >Insured Vehicle Info</h1>
+<br>
+<br>
+<div class="container">
+    {% for vehicle in vehicles %}
+            <article class="media content-section">
+                <div class="media-body">
+                    <p align="left" class="article-content">VIN: {{ vehicle.vin }}</p>
+                    <p align="left" class="article-content">Make Model Year: {{ vehicle.make_model_year }}</p>
+                    <p align="left" class="article-content">Vehicle status: {{ vehicle.vehicle_status }}</p>
+                </div>
+            </article>
+        {% endfor %}
+    <a href="{%url 'driver_query' %}" class="btn btn-primary">Check involved drivers</a>
+</div>
+
+
+{% endblock content %}

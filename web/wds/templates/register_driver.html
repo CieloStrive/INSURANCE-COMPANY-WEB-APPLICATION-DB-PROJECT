@@ -45,10 +45,24 @@
                 <button class="btn btn-outline-info" type="submit">Save/Add More</button>
             </div>
             <br>
-            <small>If no more driver to register, click Finish</small>
-            <a href="{% url 'enroll' %}" class="btn btn-primary">Finish</a>
+            <small>If no more driver to register, click Start Enroll</small>
+            <a href="{% url 'auto_ins' %}" class="btn btn-primary">Start Enroll</a>
         </form>
     </div>
+    <script>
+        var dtToday = new Date();
+
+        var month = dtToday.getMonth() + 1;
+        var day = dtToday.getDate();
+        var year = dtToday.getFullYear();
+        if(month < 10)
+            month = '0' + month.toString();
+        if(day < 10)
+            day = '0' + day.toString();
+
+        var maxDate = year + '-' + month + '-' + day;
+        $('#birth').attr('max', maxDate);
+    </script>
 
     {% endblock content %}
 </body>

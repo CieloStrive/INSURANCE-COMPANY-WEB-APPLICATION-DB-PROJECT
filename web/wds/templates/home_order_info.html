@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>WDS| Home Order</title>
+    <title>WDS| Order</title>
 </head>
 
 {% extends "theme.html" %} <!--引入拓展写好的模板主题-->
@@ -23,6 +23,14 @@
                 </div>
             </article>
         {% endfor %}
+        <br>
+        <p align="left" class="article-content">Premium Amount: {{ request.session.premium_amount }} US dollars</p>
+        <br>
+        <div class="border-top pt-3">
+            <a href="{% url 'invoice_home' %}" class="btn btn-primary">Pay In Full</a>
+            <a href="{% url 'home_installment' %}" class="btn btn-primary">Pay By Month</a>
+        </div>
+        <br>
     </div>
 </form>
 

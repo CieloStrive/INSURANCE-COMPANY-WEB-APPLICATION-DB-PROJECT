@@ -20,13 +20,14 @@
         <form id="autoForm" method="post" action="{% url 'pa_insured_vehicle' %}">
             {% csrf_token %}
             <div class="vin">
-                VIN: <input type="text" name = "vin" id="vin"  maxlength="17"required/>
+                VIN: <input type="text" name = "vin" id="vin"  maxlength="17" required/>
                 <br>
                 <small>Please fill up with VIN of 17 characters</small>
                 <br>
-                {{ check3 }}
+                <p style="color:red">{{ check3 }}</p>
                 <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Add drivers</button>
+                    <button class="btn btn-outline-info" type="submit">Add drivers</button>
+                </div>
             </div>
         </form>
     </div>
