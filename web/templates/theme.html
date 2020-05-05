@@ -52,26 +52,20 @@
       </div>
      </div>
   </nav>
+<!--    {% if messages %}-->
+<!--        {% for message in messages %}-->
+<!--            <div class="alert alert-{{ message.tags }}">-->
+<!--                {{ message }}-->
+<!--            </div>-->
+<!--        {% endfor %}-->
+<!--    {% endif %}-->
+      {% block content %}
+            Main content here
+      {% endblock content %}
+
 
   <br>
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-{{ message.tags }}">
-                {{ message }}
-            </div>
-        {% endfor %}
-    {% endif %}
   <br>
-
-
-
-  {% block content %}
-    Main content here
-  {% endblock content %}
-  <br>
-  <br>
-
-
 <footer class="text-muted">
   <div class="container">
     <p class="float-right">

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth, messages
+from django.contrib.auth.hashers import make_password
 import wds.models as models
 
 
@@ -17,7 +18,11 @@ def signup(request):
             return render(request, 'signup.html', {'check1': 'Username already exist'})
         except User.DoesNotExist:
             if password1 == password2:
-                User.objects.create_user(username=username, password=password1)
+                user = User.objects.create_user(username=username, password=password1)
+                user.password = make_password(password1)  # 明文密码经过加密处理
+                print('Encoded password:',make_password(password1))
+                print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                user.save()
                 messages.success(request, f'Your account has been created! You are now able to log in')
                 return redirect('home_page')
             else:

@@ -140,3 +140,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_DIRS = [
     os.path.join(BASE_DIR, 'wds/static'),
 ]
+
+LOGIN_URL = '/account/login/'

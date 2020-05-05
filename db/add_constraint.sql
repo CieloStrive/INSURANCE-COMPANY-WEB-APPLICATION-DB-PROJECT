@@ -6,7 +6,12 @@ alter table CUSTOMER add constraint C_CUSTOMER_MARITAL_STATUS check
 	
 alter table CUSTOMER add constraint C_CUSTOMER_CUSTOMER_TYPE check 
 ((CUSTOMER_TYPE='A') or (CUSTOMER_TYPE='H') or (CUSTOMER_TYPE='B'));
+
+alter table CUSTOMER drop check C_CUSTOMER_CUSTOMER_TYPE;
 	
+alter table CUSTOMER add constraint C_CUSTOMER_CUSTOMER_TYPE check 
+((CUSTOMER_TYPE='A') or (CUSTOMER_TYPE='H') or (CUSTOMER_TYPE='B') or (CUSTOMER_TYPE='N'));
+    
 alter table HOME_INSURANCE add constraint C_HOME_INSURANCE_INSURANCE_STATUS check 
 ((INSURANCE_STATUS='C') or (INSURANCE_STATUS='P'));
 	

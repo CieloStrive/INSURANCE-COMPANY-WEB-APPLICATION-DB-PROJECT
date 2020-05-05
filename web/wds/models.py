@@ -73,9 +73,10 @@ class AuthUserUserPermissions(models.Model):
         db_table = 'auth_user_user_permissions'
         unique_together = (('user', 'permission'),)
 
+#--------------------------- add index with 'db_index=True' -------------------------------------
 
 class AutoInsurance(models.Model):
-    insurance_id = models.CharField(primary_key=True, max_length=10)
+    insurance_id = models.CharField(db_index=True, primary_key=True, max_length=10)
     customer = models.ForeignKey('Customer', models.DO_NOTHING, blank=True, null=True)
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
@@ -101,7 +102,7 @@ class AutoRecord(models.Model):
 
 
 class Customer(models.Model):
-    customer_id = models.IntegerField(primary_key=True)
+    customer_id = models.IntegerField(db_index=True, primary_key=True)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     gender = models.CharField(max_length=1, blank=True, null=True)
@@ -165,7 +166,7 @@ class DjangoSession(models.Model):
 
 
 class Driver(models.Model):
-    license_num = models.CharField(primary_key=True, max_length=16)
+    license_num = models.CharField(db_index=True, primary_key=True, max_length=16)
     f_name = models.CharField(max_length=30)
     l_name = models.CharField(max_length=30)
     birthdate = models.DateTimeField()
@@ -179,7 +180,7 @@ class Driver(models.Model):
 
 
 class HomeInsurance(models.Model):
-    insurance_id = models.CharField(primary_key=True, max_length=10)
+    insurance_id = models.CharField(db_index=True, primary_key=True, max_length=10)
     customer = models.ForeignKey(Customer, models.DO_NOTHING, blank=True, null=True)
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
@@ -205,7 +206,7 @@ class HomeRecord(models.Model):
 
 
 class InsuredHome(models.Model):
-    home_id = models.BigIntegerField(primary_key=True)
+    home_id = models.BigIntegerField(db_index=True, primary_key=True)
     home_purchase_date = models.DateTimeField()
     home_purchase_value = models.DecimalField(max_digits=10, decimal_places=2)
     home_area = models.IntegerField()
@@ -221,7 +222,7 @@ class InsuredHome(models.Model):
 
 
 class InsuredVehicle(models.Model):
-    vin = models.CharField(primary_key=True, max_length=17)
+    vin = models.CharField(db_index=True, primary_key=True, max_length=17)
     make_model_year = models.SmallIntegerField()
     vehicle_status = models.CharField(max_length=1)
 
@@ -234,7 +235,7 @@ class InsuredVehicle(models.Model):
 
 
 class InvoiceAuto(models.Model):
-    invoice_id = models.IntegerField(primary_key=True)
+    invoice_id = models.IntegerField(db_index=True, primary_key=True)
     insurance = models.ForeignKey(AutoInsurance, models.DO_NOTHING)
     invoice_date = models.DateTimeField()
     payment_due_date = models.DateTimeField()
@@ -246,7 +247,7 @@ class InvoiceAuto(models.Model):
 
 
 class InvoiceHome(models.Model):
-    invoice_id = models.IntegerField(primary_key=True)
+    invoice_id = models.IntegerField(db_index=True, primary_key=True)
     insurance = models.ForeignKey(HomeInsurance, models.DO_NOTHING)
     invoice_date = models.DateTimeField()
     payment_due_date = models.DateTimeField()
@@ -258,7 +259,7 @@ class InvoiceHome(models.Model):
 
 
 class PaymentAuto(models.Model):
-    payment_id = models.IntegerField(primary_key=True)
+    payment_id = models.IntegerField(db_index=True, primary_key=True)
     payment_date = models.DateTimeField()
     payment_method = models.CharField(max_length=6)
     invoice = models.OneToOneField(InvoiceAuto, models.DO_NOTHING, blank=True, null=True)
@@ -269,7 +270,7 @@ class PaymentAuto(models.Model):
 
 
 class PaymentHome(models.Model):
-    payment_id = models.IntegerField(primary_key=True)
+    payment_id = models.IntegerField(db_index=True, primary_key=True)
     invoice = models.OneToOneField(InvoiceHome, models.DO_NOTHING, blank=True, null=True)
     payment_date = models.DateTimeField()
     payment_method = models.CharField(max_length=6)
@@ -283,7 +284,7 @@ class VehicleDriver(models.Model):
     license_num = models.ForeignKey(Driver, models.DO_NOTHING, db_column='license_num')
     vin = models.ForeignKey(InsuredVehicle, models.DO_NOTHING, db_column='vin')
     v_d_id = models.IntegerField(primary_key=True)
-    ins_id = models.CharField(max_length=10, blank=True, null=True)
+    ins_id = models.CharField(db_index=True, max_length=10, blank=True, null=True)
 
     class Meta:
         managed = False
