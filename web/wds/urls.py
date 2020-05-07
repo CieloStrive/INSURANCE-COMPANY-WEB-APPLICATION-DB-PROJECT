@@ -21,6 +21,9 @@ urlpatterns = [
     path('personal_center/', views.personal_center, name='personal_center'),
     path('personal_center/update', views.update_info, name='update_info'),
     path('personal_center/update_ins_status', views.update_ins_status, name='update_ins_status'),
+    path('personal_center/delete_ins', views.delete_ins, name='delete_ins'),
+    path('personal_center/delete_confirm', views.delete_confirm, name='delete_confirm'),
+    path('personal_center/delete/<str:ins_id>', views.delete, name='delete'),
 
     # --------------------------------Query-------------------------------------------
     path('personal_center/myinsurance', views.my_insurance, name='my_insurance'),

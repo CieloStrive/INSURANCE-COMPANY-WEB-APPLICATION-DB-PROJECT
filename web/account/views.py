@@ -20,7 +20,7 @@ def signup(request):
             if password1 == password2:
                 user = User.objects.create_user(username=username, password=password1)
                 user.password = make_password(password1)  # 明文密码经过加密处理
-                print('Encoded password:',make_password(password1))
+                print('Encoded password:', make_password(password1))
                 print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
                 user.save()
                 messages.success(request, f'Your account has been created! You are now able to log in')

@@ -13,7 +13,9 @@
     <div class="container">
         <h1>Invoice list</h1>
         <br>
-        <h2 style="color:blue">Please keep checking and paying your invoice in your "Account->My Invoice"</h2>
+        <h2 style="color:blue">Please keep checking and paying your invoice </h2>
+        <br>
+        <h2 style="color:blue">in your "Account->My Invoice"</h2>
         <br>
         {% for invoice in invoices %}
             {% if invoice.status == 'Paid' %}
@@ -22,6 +24,7 @@
                     <div class="media-body">
                         <p align="left" class="article-content">Invoice Number: {{ invoice.invoice_id }}</p>
                         <p align="left" class="article-content">Invoice Date: {{ invoice.invoice_date }}</p>
+                        <p align="left" class="article-content">Invoice Due: {{ invoice.invoice_due }}</p>
                         <p align="left" class="article-content">Status: {{ invoice.status }}</p>
                         <a class="btn btn-primary">Pay This Invoice</a>
                         <small>You already paid this invoice!</small>
@@ -35,6 +38,7 @@
                     <div class="media-body">
                         <p align="left" class="article-content">Invoice Number: {{ invoice.invoice_id }}</p>
                         <p align="left" class="article-content">Invoice Date: {{ invoice.invoice_date }}</p>
+                        <p align="left" class="article-content">Invoice Due: {{ invoice.invoice_due }}</p>
                         <p align="left" class="article-content">Status: {{ invoice.status }}</p>
                         <a href="{% url 'payment_auto' invoice_id=invoice.invoice_id %}" class="btn btn-primary">Pay This Invoice</a>
                         <br>

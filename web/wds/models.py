@@ -73,8 +73,8 @@ class AuthUserUserPermissions(models.Model):
         db_table = 'auth_user_user_permissions'
         unique_together = (('user', 'permission'),)
 
-#--------------------------- add index with 'db_index=True' -------------------------------------
 
+#  --------------------------- add index with 'db_index=True' -------------------------------------
 class AutoInsurance(models.Model):
     insurance_id = models.CharField(db_index=True, primary_key=True, max_length=10)
     customer = models.ForeignKey('Customer', models.DO_NOTHING, blank=True, null=True)
@@ -236,7 +236,7 @@ class InsuredVehicle(models.Model):
 
 class InvoiceAuto(models.Model):
     invoice_id = models.IntegerField(db_index=True, primary_key=True)
-    insurance = models.ForeignKey(AutoInsurance, models.DO_NOTHING)
+    insurance = models.ForeignKey(AutoInsurance, on_delete=models.CASCADE)
     invoice_date = models.DateTimeField()
     payment_due_date = models.DateTimeField()
     invoice_amount = models.DecimalField(max_digits=10, decimal_places=2)
@@ -248,7 +248,7 @@ class InvoiceAuto(models.Model):
 
 class InvoiceHome(models.Model):
     invoice_id = models.IntegerField(db_index=True, primary_key=True)
-    insurance = models.ForeignKey(HomeInsurance, models.DO_NOTHING)
+    insurance = models.ForeignKey(HomeInsurance, on_delete=models.CASCADE)
     invoice_date = models.DateTimeField()
     payment_due_date = models.DateTimeField()
     invoice_amount = models.DecimalField(max_digits=10, decimal_places=2)
@@ -262,7 +262,7 @@ class PaymentAuto(models.Model):
     payment_id = models.IntegerField(db_index=True, primary_key=True)
     payment_date = models.DateTimeField()
     payment_method = models.CharField(max_length=6)
-    invoice = models.OneToOneField(InvoiceAuto, models.DO_NOTHING, blank=True, null=True)
+    invoice = models.OneToOneField(InvoiceAuto, on_delete=models.CASCADE, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -271,7 +271,7 @@ class PaymentAuto(models.Model):
 
 class PaymentHome(models.Model):
     payment_id = models.IntegerField(db_index=True, primary_key=True)
-    invoice = models.OneToOneField(InvoiceHome, models.DO_NOTHING, blank=True, null=True)
+    invoice = models.OneToOneField(InvoiceHome, on_delete=models.CASCADE, blank=True, null=True)
     payment_date = models.DateTimeField()
     payment_method = models.CharField(max_length=6)
 

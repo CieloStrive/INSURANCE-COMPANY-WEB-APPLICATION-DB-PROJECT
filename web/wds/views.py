@@ -102,7 +102,7 @@ def update_info(request):
 
 @login_required
 def update_ins_status(request):
-    #---------update insurance status--------------
+    #  ---------update insurance status--------------
     TODAY = datetime.datetime.utcnow()
     auto = models.AutoInsurance.objects.all()
     for a in auto:
@@ -112,18 +112,86 @@ def update_ins_status(request):
     for h in home:
         if TODAY > h.end_date.replace(tzinfo=None):
             models.HomeInsurance.objects.filter(insurance_id=h.insurance_id).update(insurance_status='P')
-    #----------update customer type----------------
+    #  ----------update customer type----------------
     customer = models.Customer.objects.all()
     for c in customer:
         a = models.AutoInsurance.objects.filter(customer_id = c.customer_id,insurance_status='C')
         h = models.HomeInsurance.objects.filter(customer_id = c.customer_id,insurance_status='C')
-        if a.exists() and h.exist():
-            models.Customer.objects.filter(customer_id = c.customer_id).update(customer_type = 'B')
+        if a.exists() and h.exists():
+            models.Customer.objects.filter(customer_id = c.customer_id).update(customer_type='B')
         elif a.exists():
             models.Customer.objects.filter(customer_id=c.customer_id).update(customer_type='A')
         elif h.exists():
             models.Customer.objects.filter(customer_id=c.customer_id).update(customer_type='H')
     return render(request, 'update_ins_status.html')
+
+
+@login_required()
+def delete_ins(request):
+    if request.method == 'GET':
+        return render(request, 'delete_ins.html')
+    if request.method == 'POST':
+        name = ''
+        type = ''
+        ins_id = request.POST['ins_id']
+        error = ''
+        ins = models.AutoInsurance.objects.filter(insurance_id=ins_id)
+        insurance = ins.first()
+        if ins.exists():
+            cust = models.Customer.objects.filter(customer_id=insurance.customer_id).first()
+            f_n = cust.first_name
+            l_n = cust.last_name
+            name = f_n + ' ' + l_n
+            type = 'auto'
+        else:
+            ins = models.HomeInsurance.objects.filter(insurance_id=ins_id)
+            insurance = ins.first()
+            if ins.exists():
+                cust = models.Customer.objects.filter(customer_id=insurance.customer_id).first()
+                f_n = cust.first_name
+                l_n = cust.last_name
+                name = f_n + ' ' + l_n
+                type = 'home'
+            else:
+                error = 'There is no matching data'
+                return render(request, 'delete_error.html', {'insurance': 'NULL',
+                                                               'name': 'NULL',
+                                                               'type': 'NULL',
+                                                               'error': error})
+        return render(request, 'delete_confirm.html', {'insurance': insurance,
+                                                       'name': name,
+                                                       'type': type,
+                                                       'error': ''})
+
+
+@login_required()
+def delete_confirm(request):
+    if request.method == 'GET':
+        return render(request, 'delete_confirm.html')
+
+
+@login_required()
+def delete(request, ins_id):
+    if request.method == 'GET':
+        return render(request, 'delete.html', {'ins_id': ins_id})
+    if request.method == 'POST':
+        hi = models.HomeInsurance.objects.filter(insurance_id=ins_id)
+        if hi.exists():
+            # now delete HomeRecord
+            models.HomeRecord.objects.filter(insurance_id=ins_id).delete()
+            # now delete home insurance
+            models.HomeInsurance.objects.filter(insurance_id=ins_id).delete()
+            messages.success(request, f'Delete successful!')
+        else:
+            ai = models.AutoInsurance.objects.filter(insurance_id=ins_id)
+            if ai.exists():
+                # now delete HomeRecord
+                models.AutoRecord.objects.filter(insurance_id=ins_id).delete()
+                # now delete home insurance
+                models.AutoInsurance.objects.filter(insurance_id=ins_id).delete()
+                messages.success(request, f'Delete successful!')
+
+        return render(request, 'delete.html', {'ins_id': ins_id})
 
 
 # --------------------------------Query-------------------------------------------
@@ -167,7 +235,7 @@ def home_query(request):
         if home_ins.exists():
             pass
         else:
-            error = 'There is no matching data'
+            return render(request, 'delete_error.html')
         return render(request, 'home_result.html', {'home': home, 'error': error})  # template!!!!!!!!!
 
 
@@ -215,7 +283,7 @@ def auto_query(request):
         if auto_ins.exists():
             pass
         else:
-            error = 'There is no matching data'
+            return render(request, 'delete_error.html')
         return render(request, 'auto_result.html', {'auto': auto, 'error': error})
 
 
@@ -279,7 +347,8 @@ def home_ins(request):
         return render(request, 'home_ins.html')
     if request.method == 'POST':
         start_date = request.POST['start_date']
-        end_date = request.POST['end_date']
+        period_year = request.POST['period_year']
+        # print(end_date,"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         premium_amount = request.POST['premium_amount']
         temp_id = randString(10)
         while models.HomeInsurance.objects.filter(insurance_id=temp_id) or \
@@ -290,7 +359,7 @@ def home_ins(request):
             insurance_id=temp_id,  # need to be modified later
             customer_id=current_user.id,
             start_date=start_date,
-            end_date=end_date,
+            end_date=datetime.datetime.strptime(start_date, "%Y-%m-%d").date()+datetime.timedelta(days=(float(period_year)*366)),
             premium_amount=premium_amount,
             insurance_status='C',  # need to be modified later
         )
@@ -528,8 +597,8 @@ def home_invoice_query(request):
     for ins_id in valid_ins_id:
         h_ins = models.HomeInsurance.objects.filter(insurance_id=ins_id).first()
         contents.append({'insurance_id': h_ins.insurance_id, 'start_date': h_ins.start_date})
-    if len(contents)>1:
-        contents.pop(0)
+    # if len(contents)>1:
+    #     contents.pop(0)
     if request.method == 'GET':
         return render(request, 'home_invoice_query.html', {'contents': contents, 'error': error})
 
@@ -537,15 +606,17 @@ def home_invoice_query(request):
 @login_required()
 def home_invoice_list(request, insurance_id):
     i_id = []
-    h_records = models.InvoiceHome.objects.filter(insurance_id=insurance_id)
+    h_records = models.InvoiceHome.objects.filter(insurance_id=insurance_id).order_by('invoice_date')
     for h_record in h_records:
         if models.PaymentHome.objects.filter(invoice_id=h_record.invoice_id):  # already paid
             i_id.append({'invoice_id': h_record.invoice_id,
                          'invoice_date': h_record.invoice_date,
+                         'invoice_due':h_record.payment_due_date,
                          'status': 'Paid'})
         else:
             i_id.append({'invoice_id': h_record.invoice_id,
                          'invoice_date': h_record.invoice_date,
+                         'invoice_due': h_record.payment_due_date,
                          'status': 'Unpaid'})
     if request.method == 'GET':
         return render(request, 'home_invoice_list.html', {'invoices': i_id})
@@ -559,7 +630,7 @@ def pa_home_ins(request):
         return render(request, 'pa_home_ins.html')
     if request.method == 'POST':
         start_date = request.POST['start_date']
-        end_date = request.POST['end_date']
+        period_year = request.POST['period_year']
         premium_amount = request.POST['premium_amount']
         temp_id = randString(10)
         while models.HomeInsurance.objects.filter(insurance_id=temp_id) or \
@@ -570,7 +641,7 @@ def pa_home_ins(request):
             insurance_id=temp_id,  # need to be modified later
             customer_id=current_user.id,
             start_date=start_date,
-            end_date=end_date,
+            end_date=datetime.datetime.strptime(start_date, "%Y-%m-%d").date()+datetime.timedelta(days=(float(period_year)*366)),
             premium_amount=premium_amount,
             insurance_status='C',  # need to be modified later
         )
@@ -635,8 +706,8 @@ def register_driver(request):
         birthdate = request.POST['birth']
     lic = models.Driver.objects.filter(license_num=license_num)
 
-    # if len(license_num) != 16:
-    #     return render(request, 'register_driver.html', {'checkdriver': 'Invalid license length!'})
+    if len(license_num) < 7:
+        return render(request, 'register_driver.html', {'checkdriver': 'Invalid license length!'})
 
     if lic.exists():
         return render(request, 'register_driver.html', {'checkdriver': 'This driver License is registered before'})
@@ -659,7 +730,7 @@ def auto_ins(request):
         return render(request, 'auto_ins.html')
     if request.method == 'POST':
         start_date = request.POST['start_date']
-        end_date = request.POST['end_date']
+        period_year = request.POST['period_year']
         premium_amount = request.POST['premium_amount']
 
         temp_id = randString(10)
@@ -670,11 +741,12 @@ def auto_ins(request):
             insurance_id=temp_id,  # need to be modified later
             customer_id=current_user.id,
             start_date=start_date,
-            end_date=end_date,
+            end_date=datetime.datetime.strptime(start_date, "%Y-%m-%d").date()+datetime.timedelta(days=(float(period_year)*366)),
             premium_amount=premium_amount,
             insurance_status='C',  # need to be modified later
         )
         # use session
+        request.session['premium_amount']=premium_amount
         request.session['ins_id'] = temp_id
     return redirect('insured_vehicle')
 
@@ -779,8 +851,8 @@ class AutoOrderListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         # session
         ins_id = self.request.session.get('ins_id')
-        premium_amount = self.request.session.get('premium_amount')
-        current_user = self.request.user
+        # premium_amount = self.request.session.get('premium_amount')
+        # current_user = self.request.user
         return models.AutoRecord.objects.filter(insurance_id=ins_id)
 
 
@@ -937,8 +1009,8 @@ def auto_invoice_query(request):
         a_ins = models.AutoInsurance.objects.filter(insurance_id=ins_id).first()
         contents.append({'insurance_id': a_ins.insurance_id, 'start_date': a_ins.start_date})
 
-    if len(contents) > 1:
-        contents.pop(0)
+    # if len(contents) > 1:
+    #     contents.pop(0)
     if request.method == 'GET':
         return render(request, 'auto_invoice_query.html', {'contents': contents, 'error': error})
 
@@ -946,7 +1018,7 @@ def auto_invoice_query(request):
 @login_required()
 def auto_invoice_list(request, insurance_id):
     i_id = []
-    a_records = models.InvoiceAuto.objects.filter(insurance_id=insurance_id)
+    a_records = models.InvoiceAuto.objects.filter(insurance_id=insurance_id).order_by('invoice_date')
     for a_record in a_records:
         if models.PaymentAuto.objects.filter(invoice_id=a_record.invoice_id):  # already paid
             i_id.append({'invoice_id': a_record.invoice_id,
@@ -955,6 +1027,7 @@ def auto_invoice_list(request, insurance_id):
         else:
             i_id.append({'invoice_id': a_record.invoice_id,
                          'invoice_date': a_record.invoice_date,
+                         'invoice_due': a_record.payment_due_date,
                          'status': 'Unpaid'})
     if request.method == 'GET':
         return render(request, 'auto_invoice_list.html', {'invoices': i_id})
@@ -967,7 +1040,7 @@ def pa_auto_ins(request):
         return render(request, 'pa_auto_ins.html')
     if request.method == 'POST':
         start_date = request.POST['start_date']
-        end_date = request.POST['end_date']
+        period_year = request.POST['period_year']
         premium_amount = request.POST['premium_amount']
 
         temp_id = randString(10)
@@ -979,7 +1052,7 @@ def pa_auto_ins(request):
             insurance_id=temp_id,  # need to be modified later
             customer_id=current_user.id,
             start_date=start_date,
-            end_date=end_date,
+            end_date=datetime.datetime.strptime(start_date, "%Y-%m-%d").date()+datetime.timedelta(days=(float(period_year)*366)),
             premium_amount=premium_amount,
             insurance_status='C',  # need to be modified later
         )

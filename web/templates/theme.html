@@ -33,6 +33,7 @@
           {% if user.is_authenticated %}
             {% if user.is_superuser %}
                 <a class="nav-item nav-link" href=" {% url 'update_ins_status'  %}  ">Update Insurance Status</a>
+                <a class="nav-item nav-link" href=" {% url 'delete_ins'  %}  ">Delete Insurance</a>
             {% endif %}
             <a class="nav-item nav-link" href=" {% url 'personal_center'  %}  ">Account</a>
             <a class="nav-item nav-link" href=" {% url 'enroll'  %}  ">Enroll</a>
@@ -52,13 +53,13 @@
       </div>
      </div>
   </nav>
-<!--    {% if messages %}-->
-<!--        {% for message in messages %}-->
-<!--            <div class="alert alert-{{ message.tags }}">-->
-<!--                {{ message }}-->
-<!--            </div>-->
-<!--        {% endfor %}-->
-<!--    {% endif %}-->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
       {% block content %}
             Main content here
       {% endblock content %}

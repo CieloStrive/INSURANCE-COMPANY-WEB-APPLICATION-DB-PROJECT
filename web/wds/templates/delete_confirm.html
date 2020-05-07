@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Delete</title>
+</head>
+
+{% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+<br>
+{% block content %}
+
+<h2 align="center" >Delete Confirm</h2>
+<br>
+<div class="container" align="center">
+    <h2><p style="color:red">{{error}}</p></h2>
+    <article class="media content-section">
+        <div class="media-body">
+            <p align="left" class="article-content">Insurance ID: {{ insurance.insurance_id }}</p>
+            <p align="left" class="article-content">Customer ID: {{ insurance.customer_id }}</p>
+            <p align="left" class="article-content">Customer Name: {{ name }}</p>
+            <p align="left" class="article-content">Insurance Type: {{ type }}</p>
+            <div align="left">
+                <a href="{% url 'delete' ins_id=insurance.insurance_id %}" class="btn btn-primary">Next Step</a>
+            </div>
+
+        </div>
+    </article>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Delete</title>
+</head>
+
+{% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+<br>
+{% block content %}
+
+<h2 align="center" >Delete</h2>
+<br>
+<div class="container" align="center">
+    <h2><p style="color:red">{{error}}</p></h2>
+</div>
+<form method="POST" action=" {% url 'delete_ins' %} " align="center">
+    <!--action是指将数据发送到哪，还是发送到本网站由服务器去处理-->
+    {%csrf_token%} <!--protect from cross site request forgery-->
+    <div class="container">
+        <input type="text" name="ins_id" required>
+        <button class="btn btn-outline-info" type="submit">Search</button>
+    </div>
+</form>
+
+{% endblock content %}
