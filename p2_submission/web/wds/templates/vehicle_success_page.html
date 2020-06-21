@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Driver Information</title>
+</head>
+
+{% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+<br>
+{% block content %}
+
+<h2 align="center" >Please fill up driver information</h2>
+<br>
+<form method="POST" action=" {% url 'driver_success_page' %} " align="center">
+    <!--action是指将数据发送到哪，还是发送到本网站由服务器去处理-->
+    {%csrf_token%} <!--protect from cross site request forgery-->
+    <div class="container">
+        <br>
+        <small>Let's bind driver(s) for this vehicle at next step.</small>
+        <br>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Add driver </button>
+        </div>
+        <br>
+    </div>
+
+</form>
+
+{% endblock content %}

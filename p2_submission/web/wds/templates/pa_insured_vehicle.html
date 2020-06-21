@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Vehicle Information</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+<body>
+    {% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+    <br>
+    {% block content %}
+
+    <div class="container">
+        <h2 align="center">Please fill up driver information</h2>
+        <br>
+        <small>Follow procedures to add vehicle(s) and driver(s)</small>
+        <br>
+
+        <form id="autoForm" method="post" action="{% url 'pa_insured_vehicle' %}">
+            {% csrf_token %}
+            <div class="vin">
+                VIN: <input type="text" name = "vin" id="vin"  maxlength="17" required/>
+                <br>
+                <small>Please fill up with VIN of 17 characters</small>
+                <br>
+                <p style="color:red">{{ check3 }}</p>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Add drivers</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    {% endblock content %}
+</body>
+
+</html>

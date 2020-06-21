@@ -1,0 +1,6 @@
+MySQL------------------------------DDL code for MySQL and alteration from part I
+Oracle_DDL.sql---------------------DDL code for Oracle SQL
+web--------------------------------Code for the webpage
+relationalmodel--------------------Logical and relational model
+Project_Part_2_Spring_2020_6083B---Part II Requirement
+final project report.pdf-----------Final project report

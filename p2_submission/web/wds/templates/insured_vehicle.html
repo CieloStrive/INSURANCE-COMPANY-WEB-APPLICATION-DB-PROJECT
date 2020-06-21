@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Vehicle Information</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+<body>
+    {% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+    <br>
+    {% block content %}
+
+    <div class="container">
+        <h2 align="center">Please fill up driver information</h2>
+        <br>
+        <small>Follow procedures to add vehicle(s) and driver(s)</small>
+        <br>
+
+        <form id="autoForm" method="post" action="{% url 'insured_vehicle' %}">
+            {% csrf_token %}
+            <div class="vin">
+                VIN: <input type="text" name = "vin" id="vin"  maxlength="17" required/>
+                <br>
+                <small>Please fill up with VIN of 17 characters</small>
+                <br>
+                {{ check3 }}
+            </div>
+            <br>
+            <div class="make_model_year">
+                Make Model Year: <input type="number" name = "make_model_year" id="make_model_year" min="1950" required/>
+            </div>
+            <br>
+            <div class="vehicle_status">
+                <label for="vehicle_status">Vehicle Status: </label>
+                <select name="vehicle_status" id="vehicle_status" required>
+                    <option value="F">Financed</option>
+                    <option value="L">Leased</option>
+                    <option value="O">Owned</option>
+                </select>
+            </div>
+
+            <br>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Add drivers</button>
+            </div>
+            <br>
+            <div class="border-top pt-3">
+                <small class="text-muted">
+                    Your vehicle has been insured before? <a class="ml-2" href="{% url 'pa_auto_ins' %}">Purchase Again</a>
+                </small>
+            </div>
+        </form>
+    </div>
+
+    {% endblock content %}
+</body>
+
+</html>

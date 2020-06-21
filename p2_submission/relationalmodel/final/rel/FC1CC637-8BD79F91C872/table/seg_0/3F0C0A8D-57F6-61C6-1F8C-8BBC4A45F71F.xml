@@ -1,0 +1,117 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3F0C0A8D-57F6-61C6-1F8C-8BBC4A45F71F" name="AUTO_INSURANCE">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<generatorID>D36D4386-F3C4-878D-CD14-F55D99594966</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="INSURANCE_ID" id="DABF66FE-1F3A-8200-C4E9-DAF805F8FB59">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<commentInRDBMS><![CDATA[Insurance ID of auto-mobile  insurance, starts with "A", followed by 9 digits number]]></commentInRDBMS>
+<generatorID>A15EC222-5013-56D0-05A1-4AB6B21B3D52</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUSTOMER_ID" id="16796165-7DE8-5279-DBCA-AAC0F55F7105">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<commentInRDBMS><![CDATA[Customer id]]></commentInRDBMS>
+<generatorID>93007CC5-A686-9AE5-C664-EBBC37F38A8A</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EA305F78-44EF-3C20-2013-8E4BAE4B24F9" referredColumn="928CC3C7-B74F-9844-91A9-643A1B0B5DBF"/>
+</associations>
+</Column>
+<Column name="START_DATE" id="451C7469-7F9A-FAE0-4C7E-89DF027A490E">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<commentInRDBMS><![CDATA[start date of auto insurance policy]]></commentInRDBMS>
+<generatorID>52D0F06F-2CBD-836A-8717-F18CCBA6B6C6</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="END_DATE" id="615C852E-E9E8-9F0B-AE66-DE481550C4E6">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<commentInRDBMS><![CDATA[end date of auto insurance policy]]></commentInRDBMS>
+<generatorID>5B679237-F3F9-8E8C-3109-7666BDC08E3D</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PREMIUM_AMOUNT" id="BE02F7CF-0E42-76E7-8A15-91FB6E590D92">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<commentInRDBMS><![CDATA[auto insurance premium amount]]></commentInRDBMS>
+<generatorID>4F57F567-1586-79ED-040C-4059D3D690EC</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="INSURANCE_STATUS" id="914FC2F1-31C2-DF98-CF50-427470663922">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<commentInRDBMS><![CDATA[auto policy insurance status]]></commentInRDBMS>
+<generatorID>28438E13-8BDA-1BA7-176B-3FEE48715807</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="24FC91A8-E050-CCFF-8F19-535F0485CC75" name="AUTO_INSURANCE_PK">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<generatorID>BE92356C-0F68-3544-D518-51C5246B3CB4</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DABF66FE-1F3A-8200-C4E9-DAF805F8FB59"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D0D694AF-B5F9-6723-BE79-E89E273F3DC6" name="A_INS_CUST_FK">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<generatorID>4AE76ECF-BBD2-80F0-2F3F-3EB3CF5847EA</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="16796165-7DE8-5279-DBCA-AAC0F55F7105"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

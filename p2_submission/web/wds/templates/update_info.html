@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Update Info</title>
+</head>
+<body>
+    {% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+
+    {% block content %}
+    <div class="container">
+            <h2 align="center" >Update Your Info</h2>
+            <br>
+            <form method="POST" action=" {% url 'update_info' %} " >
+                <!--action是指将数据发送到哪，还是发送到本网站由服务器去处理-->
+                {%csrf_token%} <!--protect from cross site request forgery-->
+                <div class="first name">
+                    First Name: <input type="text" value="{{customer.first_name}}"  name = "f_name">
+                </div>
+                <br>
+                <div class="last name">
+                    Last Name: <input type="text" value="{{customer.last_name}}"  name = "l_name">
+                </div>
+                <br>
+                <div class="gender">
+                    <label for="gender">Gender: </label>
+                    <select name="gender" id="gender">
+                        <option value=""></option>
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                    </select>
+                </div>
+                <br>
+                <div class="marital status">
+                    Marital Status: <input type="text" value="{{customer.marital_status}}" list="ms" name = "M_S">
+                    <datalist id="ms">
+                        <option>M</option>
+                        <option>S</option>
+                        <option>W</option>
+                    </datalist>
+                    <br>
+                    <small>M-Married, S-Single, W-Widow/Widower</small>
+                </div>
+                <br>
+                <div class="customer type">
+                    Customer Type: <input type="text" value="{{customer.customer_type}}" name = "customer_type" disabled>
+                    <br>
+                    <small>A-Auto Insurance, H-Home Insurance, B-Both. This is updated my system automatically.</small>
+                </div>
+                <br>
+                <div class="city">
+                    City: <input type="text" value="{{customer.city}}" name = "city">
+                </div>
+                <br>
+                <div class="state">
+                    State: <input type="text" value="{{customer.state}}" name = "state"><small style="color:red">{{check_state}}</small>
+                    <br>
+                    <small>Please input two letter abbreviation</small>
+                </div>
+                <br>
+                <div class="street">
+                    Street: <input type="text" value="{{customer.street}}" name = "street">
+                </div>
+                <br>
+                <div class="zip">
+                    Zip: <input type="text" value="{{customer.zip}}" name = "zip">
+                </div>
+                <br>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Update</button>
+                </div>
+            </form>
+    </div>
+    {% endblock content %}
+
+
+</body>
+</html>

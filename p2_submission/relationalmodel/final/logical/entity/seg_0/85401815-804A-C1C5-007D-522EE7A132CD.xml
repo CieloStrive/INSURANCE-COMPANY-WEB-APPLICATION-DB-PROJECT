@@ -1,0 +1,105 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="85401815-804A-C1C5-007D-522EE7A132CD" name="AUTO_RECORD">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:52:39 UTC</createdTime>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="a_r_id" id="44DBA617-3BBA-998B-22C6-D6AD3E98B52D">
+<createdBy>Shi Siyuan</createdBy>
+<createdTime>2020-05-05 19:28:53 UTC</createdTime>
+<commentInRDBMS><![CDATA[auto record id]]></commentInRDBMS>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="INSURANCE_ID" id="BDF91C95-3D2A-EF36-A091-101D8AB3373D">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:52:53 UTC</createdTime>
+<commentInRDBMS><![CDATA[INSURANCE'S ID]]></commentInRDBMS>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="VIN" id="1F070681-1122-E3DD-A88D-83DB45B2E133">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:53:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[vehicle identification number]]></commentInRDBMS>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>17</dataTypeSize>
+<ownDataTypeParameters>17,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="INSURANCE_ID1" id="125B54D5-E0EB-3036-5323-BECCAD00B053">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:54:23 UTC</createdTime>
+<generatorID>F1EDF2CF-84D6-05A1-A2D9-CED06DC74BCE</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<referedAttribute>A15EC222-5013-56D0-05A1-4AB6B21B3D52</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="VIN1" id="1E83253A-9EFB-ECEF-3A14-B1DC8B1B9E61">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:54:32 UTC</createdTime>
+<generatorID>D5EA3167-5255-478E-68EE-F923126B8FA1</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<referedAttribute>93E261CB-B576-016D-6730-C80107351643</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>17</dataTypeSize>
+<ownDataTypeParameters>17,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="E0BBE30A-F13A-D80D-B38B-3AF9A8FA16C9" name="AUTO_RECORD PK">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:53:06 UTC</createdTime>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>44DBA617-3BBA-998B-22C6-D6AD3E98B52D</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

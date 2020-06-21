@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="2CE7074C-A878-820B-E367-82F19448ECF6" containerWithKeyObject="2F5DCBE3-7CB6-DDEE-253F-E8CB9CF3F109" localFKIndex="BEA30FB7-7C57-7088-24C3-547E686DB193" name="VCL_DRI_ISD_VCL_FK">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<generatorID>C2F34EDA-A689-5905-27C7-630AF7CE308D</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<referredTableLongName>INSURED_VEHICLE</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>C3870D59-7A7A-2AAB-194F-F7C73947B8A2</referredTableID>
+<keyObject>BB4FA30A-E92E-9EA2-ECD4-2376C427E118</keyObject>
+<referredKeyID>BB4FA30A-E92E-9EA2-ECD4-2376C427E118</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>VIN</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

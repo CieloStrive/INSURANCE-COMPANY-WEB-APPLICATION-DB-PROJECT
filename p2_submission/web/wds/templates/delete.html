@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Delete</title>
+</head>
+
+{% extends "theme.html" %}
+<br>
+{% block content %}
+
+<h2 align="center" >Delete Confirm</h2>
+<br>
+<form method="POST" action=" {% url 'delete' ins_id=ins_id %} " align="center">
+    {%csrf_token%} <!--protect from cross site request forgery-->
+    <div class="container">
+        <p align="center" class="article-content">Insurance ID: {{ ins_id }}</p>
+        <button class="btn btn-outline-danger" type="submit">DELETE</button>
+    </div>
+</form>
+
+
+{% endblock content %}

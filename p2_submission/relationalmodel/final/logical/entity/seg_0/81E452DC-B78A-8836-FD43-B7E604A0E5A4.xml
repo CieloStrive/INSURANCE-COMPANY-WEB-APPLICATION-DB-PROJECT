@@ -1,0 +1,107 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="81E452DC-B78A-8836-FD43-B7E604A0E5A4" name="VEHICLE_DRIVER">
+<createdBy>Shi Siyuan</createdBy>
+<createdTime>2020-03-26 21:46:10 UTC</createdTime>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="LICENSE_NUM" id="F1296C22-E4ED-AA2D-72BB-1D6D3AC36775">
+<createdBy>Shi Siyuan</createdBy>
+<createdTime>2020-03-26 21:46:39 UTC</createdTime>
+<commentInRDBMS><![CDATA[driver's license number]]></commentInRDBMS>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>16</dataTypeSize>
+<ownDataTypeParameters>16,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="VIN" id="A6E58542-4337-EEBC-86F4-5B269CF9507C">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-06 01:57:35 UTC</createdTime>
+<commentInRDBMS><![CDATA[vehicle identification number]]></commentInRDBMS>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>17</dataTypeSize>
+<ownDataTypeParameters>17,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="VIN1" id="8B88555F-6E2D-2A48-0D6B-3BFAED096AAC">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-06 02:16:01 UTC</createdTime>
+<generatorID>C2F34EDA-A689-5905-27C7-630AF7CE308D</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<referedAttribute>93E261CB-B576-016D-6730-C80107351643</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>17</dataTypeSize>
+<ownDataTypeParameters>17,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="LICENSE_NUM1" id="CB0979F5-E036-48D7-6350-102A4E765323">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-06 02:17:07 UTC</createdTime>
+<generatorID>F0E0BDF6-4EAD-7A9A-8DBB-B9F7BCC900B3</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<referedAttribute>B19CBCD5-5B7A-98E9-EF28-499254BB8544</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>16</dataTypeSize>
+<ownDataTypeParameters>16,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ins_id" id="CD2B2CA4-9C00-5F44-E2F2-EE69E231CDF9">
+<createdBy>Shi Siyuan</createdBy>
+<createdTime>2020-05-05 19:31:32 UTC</createdTime>
+<commentInRDBMS><![CDATA[insurance id]]></commentInRDBMS>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="EB8A6804-EF9E-715E-EC8A-1E8A092BB8DE" name="VEHICLE_DRIVER PK">
+<createdBy>Shi Siyuan</createdBy>
+<createdTime>2020-03-26 21:47:09 UTC</createdTime>
+<ownerDesignName>final</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>F1296C22-E4ED-AA2D-72BB-1D6D3AC36775</attributeRef>
+<attributeRef>A6E58542-4337-EEBC-86F4-5B269CF9507C</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

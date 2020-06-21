@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Home Information</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+<body>
+    {% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+    <br>
+    {% block content %}
+
+    <div class="container">
+        <h2 align="center">Please fill up basic information</h2>
+        <br>
+        <form id="homeForm" method="post" action="{% url 'insured_home' %}">
+            {% csrf_token %}
+            <div class="home id">
+                Home ID : <input type="number" step="1" min=0 max=9999999999 name = "home_id" required/>
+                {{ check3 }}
+                <br>
+                <small>The unique identifier of your deed</small>
+            </div>
+            <br>
+            <div class="purchase date">
+                Home Purchase Date: <input type="date" name = "home_purchase_date" id="s" required/>
+                <br>
+                <small>When did you purchase your house?</small>
+            </div>
+            <br>
+            <div class="home purchase value">
+                Price : <input type="number" id="hpv" min=0.00 max=99999999.99 name = "home_purchase_value" required/> US dollars
+                <br>
+                <small>The price of your house</small>
+            </div>
+            <br>
+            <div class="home area">
+                Home Area: <input type="number" name="home_area" min=0 max=9999999 step="1" required/> Square Feet
+            </div>
+            <br>
+            <div class="home type">
+                <label for="home_type">Home Type: </label>
+                <select name="home_type" id="home_type" required>
+                    <option value="S">single family</option>
+                    <option value="M">multi family</option>
+                    <option value="C">condominium</option>
+                    <option value="T">town house</option>
+                </select>
+            </div>
+            <br>
+            <div class="auto fire notification">
+                <label for="auto_fire_notification">Does your house have auto fire notification? </label>
+                <select name="auto_fire_notification" id="auto_fire_notification" required>
+                    <option value=1>Yes</option>
+                    <option value=0>No</option>
+                </select>
+            </div>
+            <br>
+            <div class="home security system">
+                <label for="home_security_system">Does your house have home security system? </label>
+                <select name="home_security_system" id="home_security_system" required>
+                    <option value=1>Yes</option>
+                    <option value=0>No</option>
+                </select>
+            </div>
+            <br>
+            <div class="swimming pool">
+                <label for="swimming_pool">Type of Swimming Pool: </label>
+                <select name="swimming_pool" id="swimming_pool" required>
+                    <option value="I">Indoor</option>
+                    <option value="U">Underground</option>
+                    <option value="O">Overground</option>
+                    <option value="M">Multiple</option>
+                    <option value="N">No Swimming Pool</option>
+                </select>
+            </div>
+            <br>
+            <div class="basement">
+                <label for="basement">Does your house have basement? </label>
+                <select name="basement" id="basement" required>
+                    <option value=1>Yes</option>
+                    <option value=0>No</option>
+                </select>
+            </div>
+            <br>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Save and Add</button>
+            </div>
+            <br>
+            <div class="border-top pt-3">
+                <small class="text-muted">
+                    Your house has been insured before? <a class="ml-2" href="pa_insured_home">Purchase Again</a>
+                </small>
+            </div>
+        </form>
+    </div>
+    <script>
+        var dtToday = new Date();
+
+        var month = dtToday.getMonth() + 1;
+        var day = dtToday.getDate();
+        var year = dtToday.getFullYear();
+        if(month < 10)
+            month = '0' + month.toString();
+        if(day < 10)
+            day = '0' + day.toString();
+
+        var maxDate = year + '-' + month + '-' + day;
+        $('#s').attr('max', maxDate);
+    </script>
+    <script>
+        parseFloat($("#hpv").val()).toFixed(2)
+    </script>
+
+
+    {% endblock content %}
+</body>
+
+</html>

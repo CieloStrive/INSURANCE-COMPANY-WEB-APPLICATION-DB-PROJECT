@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="HOME_INVOICE_PAYMENT" directorySegmentName="seg_0" id="72D975FB-CCCF-9ABA-1677-D2554FD7C122">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-06 02:46:45 UTC</createdTime>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<sourcePk>8FBCF3FA-3566-6EE0-F673-0AF6000E02D9</sourcePk>
+<targetPk>A7E5D5D9-5C3E-99DA-FAC0-32E4AF370908</targetPk>
+<dominantRole>5B074EDE-B625-96F3-4862-76A94679A073</dominantRole>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>5DAD44D5-ECD2-8480-BEE2-8C6CEE093542</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>5B074EDE-B625-96F3-4862-76A94679A073</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

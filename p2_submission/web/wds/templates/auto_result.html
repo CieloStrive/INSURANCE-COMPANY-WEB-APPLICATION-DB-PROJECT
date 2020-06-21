@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Query Result</title>
+</head>
+
+{% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+<br>
+{% block content %}
+
+<h1 align="center" >Insurance Info</h1>
+<br>
+<h2 align="center" >{{error}} </h2>
+<br>
+<div class="container">
+    <article class="media content-section">
+        <div class="media-body">
+            <p align="left" class="article-content">Insurance ID: {{ auto.insurance_id }}</p>
+            <p align="left" class="article-content">Start Date: {{ auto.start_date }}</p>
+            <p align="left" class="article-content">End Date: {{ auto.end_date }}</p>
+            <p align="left" class="article-content">Premium Amount: {{ auto.premium_amount }}</p>
+            <p align="left" class="article-content">Insurance Status: {{ auto.insurance_status }}</p>
+        </div>
+    </article>
+    <a href="{%url 'vehicle_query' insurance_id=auto.insurance_id %}" class="btn btn-primary">Check Insured Vehicle</a>
+
+</div>
+
+{% endblock content %}

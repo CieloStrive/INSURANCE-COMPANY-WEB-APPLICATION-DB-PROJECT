@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Login</title>
+</head>
+
+{% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+<br>
+{% block content %}
+
+<h2 align="center" >Log in Your Account</h2>
+<br>
+<form method="POST" action=" {% url 'login' %} " align="center">
+    <!--action是指将数据发送到哪，还是发送到本网站由服务器去处理-->
+    {%csrf_token%} <!--protect from cross site request forgery-->
+    User name:
+    <br>
+    <input type="text" name = "username">
+    <br>
+    Password:
+    <br>
+    <input type="password" name = "password">
+    <br>
+    {{ check }}
+    <br>
+    <input class="btn-primary" type="submit" value = "Login">
+</form>
+
+{% endblock content %}

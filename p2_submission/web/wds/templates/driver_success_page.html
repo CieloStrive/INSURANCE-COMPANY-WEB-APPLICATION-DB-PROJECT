@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Driver Information</title>
+</head>
+
+{% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+<br>
+{% block content %}
+
+<h2 align="center" >Please fill up basic information</h2>
+<br>
+<form method="POST" action=" {% url 'driver_success_page' %} " align="center">
+    <!--action是指将数据发送到哪，还是发送到本网站由服务器去处理-->
+    {%csrf_token%} <!--protect from cross site request forgery-->
+    <div class="container">
+        <br>
+        <small>Want to bind another driver for this vehicle?Click Add another</small>
+        <br>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Add another </button>
+        </div>
+        <br>
+        <small>Want to add another vehicle to this insurance? Click Add another</small>
+        <br>
+        <div class="border-top pt-3">
+            <a href="{% url 'insured_vehicle' %}" class="btn btn-primary">Add another </a>
+        </div>
+        <br>
+        <small>No more vehicle/driver to add? Click Next Step</small>
+        <br>
+        <div class="border-top pt-3">
+            <a href="{% url 'auto_order_info' %}" class="btn btn-primary">Next step</a>
+        </div>
+        <br>
+    </div>
+
+</form>
+
+{% endblock content %}

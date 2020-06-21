@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="5DAD44D5-ECD2-8480-BEE2-8C6CEE093542" name="PAYMENT_HOME">
+<createdBy>Shi Siyuan</createdBy>
+<createdTime>2020-03-25 23:00:17 UTC</createdTime>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="PAYMENT_ID" id="E8D493D9-C2BD-C3C5-D9DB-180FB4779174">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-06 02:57:11 UTC</createdTime>
+<commentInRDBMS><![CDATA[payment's ID]]></commentInRDBMS>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PAYMENT_DATE" id="358D2F7F-7B11-9D97-AF54-9C262D54CC26">
+<createdBy>Shi Siyuan</createdBy>
+<createdTime>2020-03-25 23:00:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[date of payment]]></commentInRDBMS>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PAYMENT_METHOD" id="AA59E835-871D-556F-3A7C-86E029D46112">
+<createdBy>Shi Siyuan</createdBy>
+<createdTime>2020-03-25 23:01:26 UTC</createdTime>
+<commentInRDBMS><![CDATA[payment method: "PayPal", "Credit", "Debit", "Check"]]></commentInRDBMS>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>6</dataTypeSize>
+<ownDataTypeParameters>6,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="INVOICE_ID1" id="227CCEB7-807C-C8FD-A3A0-A4970480C0F3">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-09 19:02:58 UTC</createdTime>
+<generatorID>72D975FB-CCCF-9ABA-1677-D2554FD7C122</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>E78338AC-ED3F-4616-C03F-C5513BE8A256</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="8FBCF3FA-3566-6EE0-F673-0AF6000E02D9" name="PAYMENT_HOME PK">
+<createdBy>Shi Siyuan</createdBy>
+<createdTime>2020-03-26 03:33:31 UTC</createdTime>
+<ownerDesignName>final</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>E8D493D9-C2BD-C3C5-D9DB-180FB4779174</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

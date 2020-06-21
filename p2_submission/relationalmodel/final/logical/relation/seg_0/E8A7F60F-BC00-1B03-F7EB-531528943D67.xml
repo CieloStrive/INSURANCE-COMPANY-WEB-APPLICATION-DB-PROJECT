@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="AUTO_INSURANCE_INVOICE" directorySegmentName="seg_0" id="E8A7F60F-BC00-1B03-F7EB-531528943D67">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-06 02:10:46 UTC</createdTime>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<sourcePk>BE92356C-0F68-3544-D518-51C5246B3CB4</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>D36D4386-F3C4-878D-CD14-F55D99594966</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>17150146-3814-28DD-D051-EDDFD846497A</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

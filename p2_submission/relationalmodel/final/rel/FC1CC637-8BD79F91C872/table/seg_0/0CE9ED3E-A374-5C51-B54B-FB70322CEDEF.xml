@@ -1,0 +1,93 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0CE9ED3E-A374-5C51-B54B-FB70322CEDEF" name="HOME_RECORD">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<generatorID>5C86F742-47B6-16E5-C5EC-0EB20DF34586</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="HOME_ID" id="74E117A5-E394-70C7-2915-9662E5A9B698">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<commentInRDBMS><![CDATA[HOUSE'S ID]]></commentInRDBMS>
+<generatorID>144AA812-12A8-964D-93C9-14CAC9442AC0</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C9A4CAEF-28A9-07B8-3815-3741B2AAF14B" referredColumn="DC08449D-0CC2-42A1-5C43-527B4CE8D237"/>
+</associations>
+</Column>
+<Column name="INSURANCE_ID" id="6FE8AC2D-D80C-7AEF-3524-5074BF585FE3">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<generatorID>CF23D1C0-52E9-49EB-620C-967E3DEBE139</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D2CB938D-5272-95CA-B205-7747D38AE819" referredColumn="238C6350-C34F-A1EF-1F68-A1FD7224198E"/>
+</associations>
+</Column>
+<Column name="h_r_id" id="522E25ED-2E28-A773-3700-34D1DDACDE9F">
+<createdBy>Shi Siyuan</createdBy>
+<createdTime>2020-05-05 19:32:48 UTC</createdTime>
+<commentInRDBMS><![CDATA[home record id]]></commentInRDBMS>
+<generatorID>142BA21A-A51B-BB4F-0E1C-17230B13DC04</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="60820759-2837-62D4-5762-2F560124EC6C" name="HOME_RECORD_PK">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<generatorID>E9179E9C-B4C9-CD86-FF2C-EE25D4183256</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="522E25ED-2E28-A773-3700-34D1DDACDE9F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5F7FEC05-54F3-61FE-F19B-D728D787423B" name="H_RCD_H_INS_FK">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<generatorID>549FC155-B59A-F216-27CB-566FA345EED4</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6FE8AC2D-D80C-7AEF-3524-5074BF585FE3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="815EFD27-7146-39B5-D09E-736A24310403" name="H_RCD_INSURED_H_FK">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<generatorID>EA352330-EEA9-7AD2-1AB3-BEABE55DF545</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="74E117A5-E394-70C7-2915-9662E5A9B698"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

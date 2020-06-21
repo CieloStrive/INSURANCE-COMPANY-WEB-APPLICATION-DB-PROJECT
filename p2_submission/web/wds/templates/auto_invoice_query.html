@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Query Auto Invoice</title>
+</head>
+{% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+<br>
+{% block content %}
+<h1 align="center">Query Auto Insurance Invoice</h1>
+<br>
+<h2 align="center" >Here are insurance ID of yours</h2>
+<br>
+
+<div class="container" align="center">
+    <h2>
+        <p style="color:red">{{error}}</p>
+    </h2>
+    <br>
+    {% for content in contents %}
+            <article class="media content-section">
+                <div class="media-body">
+                    <br>
+                    <p align="center" class="article-content">Insurance ID: {{ content.insurance_id }}</p>
+                    <p align="center" class="article-content">Start Date: {{ content.start_date }}</p>
+                    <a href="{% url 'auto_invoice_list' insurance_id=content.insurance_id %}" class="btn btn-primary">Detail</a>
+                    <br>
+                </div>
+            </article>
+    {% endfor %}
+</div>
+
+
+{% endblock content %}

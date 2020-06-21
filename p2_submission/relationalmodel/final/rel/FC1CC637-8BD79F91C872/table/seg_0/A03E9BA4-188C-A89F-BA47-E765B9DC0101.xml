@@ -1,0 +1,93 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A03E9BA4-188C-A89F-BA47-E765B9DC0101" name="AUTO_RECORD">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<generatorID>85401815-804A-C1C5-007D-522EE7A132CD</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="VIN" id="9D4AF696-122D-C1D9-3628-3D04645C2193">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<commentInRDBMS><![CDATA[vehicle identification number]]></commentInRDBMS>
+<generatorID>1F070681-1122-E3DD-A88D-83DB45B2E133</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>17</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="59C8DA67-D094-D290-C478-FC8522E881D8" referredColumn="3304DC1D-9D50-8CC6-6A62-21326DDBEE4E"/>
+</associations>
+</Column>
+<Column name="INSURANCE_ID" id="1A7808D1-48D5-1D56-BB79-5D850E274534">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<generatorID>125B54D5-E0EB-3036-5323-BECCAD00B053</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2DD7EF32-0DBE-F72A-092D-002483F877E2" referredColumn="DABF66FE-1F3A-8200-C4E9-DAF805F8FB59"/>
+</associations>
+</Column>
+<Column name="a_r_id" id="DDA90A9F-E8B9-917C-5462-9E8EADDA8EEC">
+<createdBy>Shi Siyuan</createdBy>
+<createdTime>2020-05-05 19:32:48 UTC</createdTime>
+<commentInRDBMS><![CDATA[auto record id]]></commentInRDBMS>
+<generatorID>44DBA617-3BBA-998B-22C6-D6AD3E98B52D</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="12B36382-91FE-7181-4298-DA15A467716D" name="AUTO_RECORD_PK">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<generatorID>E0BBE30A-F13A-D80D-B38B-3AF9A8FA16C9</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DDA90A9F-E8B9-917C-5462-9E8EADDA8EEC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A1EDD4AA-67A5-CD80-9484-69C2DA9BD8BD" name="A_RCD_A_INS_FK">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<generatorID>F1EDF2CF-84D6-05A1-A2D9-CED06DC74BCE</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1A7808D1-48D5-1D56-BB79-5D850E274534"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="42596D53-0723-D5D0-FFA7-54CAE76C147D" name="A_RCD_INS_VCL_FK">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<generatorID>D5EA3167-5255-478E-68EE-F923126B8FA1</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9D4AF696-122D-C1D9-3628-3D04645C2193"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

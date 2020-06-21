@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Order</title>
+</head>
+
+{% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+<br>
+{% block content %}
+
+<h2 align="center" >Order Info</h2>
+<br>
+<form method="POST" action=" {% url 'home_order_info' %} " align="center">
+    <!--action是指将数据发送到哪，还是发送到本网站由服务器去处理-->
+    {%csrf_token%} <!--protect from cross site request forgery-->
+    <div class="container">
+        {% for record in records %}
+            <article class="media content-section">
+                <div class="media-body">
+                    <p align="left" class="article-content">Home ID: {{ record.home_id }}</p>
+                    <p align="left" class="article-content">Insurance ID: {{ record.insurance_id }}</p>
+                </div>
+            </article>
+        {% endfor %}
+        <br>
+        <p align="left" class="article-content">Premium Amount: {{ request.session.premium_amount }} US dollars</p>
+        <br>
+        <div class="border-top pt-3">
+            <a href="{% url 'invoice_home' %}" class="btn btn-primary">Pay In Full</a>
+            <a href="{% url 'home_installment' %}" class="btn btn-primary">Pay By Month</a>
+        </div>
+        <br>
+    </div>
+</form>
+
+{% endblock content %}

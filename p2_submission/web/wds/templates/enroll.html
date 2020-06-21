@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Enroll</title>
+</head>
+<body>
+    {% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+    <br>
+    {% block content %}
+    {% load static %}
+      <div class="msg_desc">
+        <img style="max-width:100%;overflow:hidden;" src="{% static 'enroll_header4.png' %}" alt="">
+      </div>
+        <div class="container">
+            <br>
+            <h2>Home Insurance:</h2>
+            <br>
+            <h4>Putting Down Roots</h4>
+            <br>
+            <p>Protect your largest investment from unexpected events life may throw your way.</p>
+            <br>
+            <div class="msg_desc">
+                <img style="max-width:50%;overflow:hidden;" src="{% static 'h2.png' %}" alt="">
+            </div>
+            <br>
+            <a href="{% url 'home_ins' %}" class="btn btn-primary">Enroll</a>
+            <br>
+            <br>
+            <h4>Auto Insurance:</h4>
+            <br>
+            <h4>Have Fun Out There</h4>
+            <br>
+            <p>You have fun, enjoy fresh air, we keep you insured from accident.</p>
+            <br>
+            <div class="msg_desc">
+                <img style="max-width:50%;overflow:hidden;" src="{% static 'h5.png' %}" alt="">
+            </div>
+            <br>
+            <a href="{% url 'auto_ins' %}" class="btn btn-primary">Enroll</a>
+            <br>
+            <p style="color:blue">Please register drivers into our database system first!</p>
+            <a href="{% url 'register_driver' %}" class="btn btn-primary">Register driver</a>
+        </div>
+    {% endblock content %}
+</body>
+</html>

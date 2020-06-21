@@ -1,0 +1,104 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C04B7656-7320-DEBB-82D1-352A263388C6" name="INVOICE_HOME">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<generatorID>5B074EDE-B625-96F3-4862-76A94679A073</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="INVOICE_ID" id="616076F8-367C-DC94-C42F-40A30BA8A3FE">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<commentInRDBMS><![CDATA[invoice id]]></commentInRDBMS>
+<generatorID>E78338AC-ED3F-4616-C03F-C5513BE8A256</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="INSURANCE_ID" id="B3B82B8A-FA3D-EDC4-3326-2192B7D599F1">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<commentInRDBMS><![CDATA[Insurance ID of home  insurance, starts with "H", followed by 9 digits number]]></commentInRDBMS>
+<generatorID>2917C111-0678-FB48-DC5B-1F5D530DDDE7</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0B0CD09D-F949-7384-ACFB-FEE56ACE4021" referredColumn="238C6350-C34F-A1EF-1F68-A1FD7224198E"/>
+</associations>
+</Column>
+<Column name="INVOICE_DATE" id="B8642C72-40CC-2294-45DE-69F9E67874AB">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<commentInRDBMS><![CDATA[date of invoice]]></commentInRDBMS>
+<generatorID>D8CBC030-4D8D-8AAB-2547-7B5C73220141</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PAYMENT_DUE_DATE" id="ED47EE18-66A7-9B08-F8C8-66B2ED77D324">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<commentInRDBMS><![CDATA[payment due date]]></commentInRDBMS>
+<generatorID>532C15D3-6D71-6DF4-2D0B-B011E399A27F</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="INVOICE_AMOUNT" id="E36C14BD-C745-A455-DC1B-E0CAC6E56A1F">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<commentInRDBMS><![CDATA[invoice amount in usd]]></commentInRDBMS>
+<generatorID>AEF5E02A-2FC4-0EE8-FEA5-27068BB02347</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="AD97EE57-299C-2476-9555-D57D81B267DA" name="INVOICE_HOME_PK">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<generatorID>A7E5D5D9-5C3E-99DA-FAC0-32E4AF370908</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="616076F8-367C-DC94-C42F-40A30BA8A3FE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0AD0DBCC-51BF-ECCF-68AF-E8C54B3A123B" name="INV_H_INS_FK">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<generatorID>682B8003-B5A0-795E-FE9E-8ADB24C2DB69</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B3B82B8A-FA3D-EDC4-3326-2192B7D599F1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

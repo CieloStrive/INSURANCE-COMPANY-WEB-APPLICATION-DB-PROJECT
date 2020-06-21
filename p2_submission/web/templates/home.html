@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Home</title>
+</head>
+<body>
+
+{% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+<br>
+{% block content %}
+    {% load static %}
+    <div class="msg_desc">
+        <img style="max-width:100%;overflow:hidden;" src="{% static 'header.png' %}" alt="">
+    </div>
+    <h1 align="center">Welcome to WDS,{{ sid }}</h1>
+    <br>
+    <h2 align="center">This is our home page.</h2>
+    <div class="msg_desc" align="center">
+                <img  style="max-width:45%;overflow:hidden;" src="{% static 'h4.png' %}" alt="">
+    </div>
+    {% if user.is_authenticated %}
+        <div align="center">
+            <br>
+            <h5>Click our WDS icon, it can always leads you back to home page</h5>
+            <br>
+            <h5>Click "Account", you can manage your account, check your insurance, invoice, payment here.</h5>
+            <br>
+            <h5>You can also click "Enroll" to get insured under our great Home or Auto insurance.</h5>
+
+        </div>
+    {% else %}
+        <div align="center">
+            <br>
+            <h3>Join us by "Sign up" or "Login".</h3>
+        </div>
+    {% endif %}
+{% endblock content %}
+
+
+</body>
+</html>

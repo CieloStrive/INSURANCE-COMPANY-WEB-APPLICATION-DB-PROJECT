@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Driver Information</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+<body>
+    {% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+    <br>
+    {% block content %}
+
+    <div class="container">
+        <h2 align="center">Please fill up basic information</h2>
+        <br>
+        <small>Follow procedures to add vehicle(s) and driver(s)</small>
+        <br>
+        <br>
+        <form id="register_driver" method="post" action="{% url 'register_driver' %}">
+            {% csrf_token %}
+            <div class="license_num">
+                License: <input type="text" name = "license_num" id="license"  maxlength="16" required/>
+                {{checkdriver}}
+                <br>
+                <small>Please fill up with license of 16 characters</small>
+            </div>
+            <br>
+            <div class="f_name">
+                First Name: <input type="text" name = "f_name" id="f_name" required/>
+                <br>
+            </div>
+            <br>
+            <div class="f_name">
+                Last Name: <input type="text" name = "l_name" id="l_name" required/>
+                <br>
+            </div>
+            <br>
+            <div class="birth">
+                Birthday: <input type="date" name = "birth" id="birth" required/>
+                <br>
+            </div>
+            <br>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Save/Add More</button>
+            </div>
+            <br>
+            <small>If no more driver to register, click Start Enroll</small>
+            <a href="{% url 'auto_ins' %}" class="btn btn-primary">Start Enroll</a>
+        </form>
+    </div>
+    <script>
+        var dtToday = new Date();
+
+        var month = dtToday.getMonth() + 1;
+        var day = dtToday.getDate();
+        var year = dtToday.getFullYear();
+        if(month < 10)
+            month = '0' + month.toString();
+        if(day < 10)
+            day = '0' + day.toString();
+
+        var maxDate = year + '-' + month + '-' + day;
+        $('#birth').attr('max', maxDate);
+    </script>
+
+    {% endblock content %}
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Query Result</title>
+</head>
+
+{% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+<br>
+{% block content %}
+
+<h1 align="center" >Insured Home Info</h1>
+<br>
+<br>
+<div class="container">
+    {% for house in houses %}
+            <article class="media content-section">
+                <div class="media-body">
+                    <br>
+                    <p align="left" class="article-content">Home ID: {{ house.home_id }}</p>
+                    <p align="left" class="article-content">Home Purchase Date: {{ house.home_purchase_date }}</p>
+                    <p align="left" class="article-content">Price: {{ house.home_purchase_value }}</p>
+                    <p align="left" class="article-content">Area: {{ house.home_area }}</p>
+                    <p align="left" class="article-content">Type: {{ house.home_type }}</p>
+                    <p align="left" class="article-content">Auto Fire Notification: {{ house.auto_fire_notification }}</p>
+                    <p align="left" class="article-content">Home Security System: {{ house.home_security_system }}</p>
+                    <p align="left" class="article-content">Swimming Pool: {{ house.swimming_pool }}</p>
+                    <p align="left" class="article-content">Basement: {{ house.basement }}</p>
+                    <br>
+                </div>
+            </article>
+        {% endfor %}
+    <a href="{%url 'my_insurance' %}" class="btn btn-primary">Query More</a>
+</div>
+
+
+{% endblock content %}

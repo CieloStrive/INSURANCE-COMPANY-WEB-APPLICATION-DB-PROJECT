@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="HOME_INSURANCE_INVOICE" directorySegmentName="seg_0" id="682B8003-B5A0-795E-FE9E-8ADB24C2DB69">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-06 02:06:37 UTC</createdTime>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<sourcePk>E0BA386C-406F-63B5-F91D-997686D19063</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>1E36149E-EFBA-81D1-DAAF-B4118419B854</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>5B074EDE-B625-96F3-4862-76A94679A073</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

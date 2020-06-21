@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Account</title>
+</head>
+<body>
+    {% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+    <br>
+
+    {% block content %}
+        {% load static %}
+        <div class="msg_desc" align="center">
+            <img  style="max-width:100%;overflow:hidden;" src="{% static 'enroll_header2.png' %}" alt="">
+        </div>
+        <h1 align="center">Personal Information</h1>
+        <br>
+        <br>
+        <div class="container" align="center">
+            <h5>
+                Customer ID: {{customer.customer_id}}
+                &nbsp; First Name:  {{customer.first_name}}
+                &nbsp; Last Name:   {{customer.last_name}}
+            </h5>
+            <br>
+            <h5>
+                Gender:   {{customer.gender}}
+                &nbsp; Marital Status:   {{customer.marital_status}}
+                &nbsp; Customer Type:   {{customer.customer_type}}
+            </h5>
+            <br>
+            <h6>
+                City:   {{customer.city}}
+                &nbsp; State:   {{customer.state}}
+                &nbsp; Street:   {{customer.street}}
+                &nbsp; Zip:   {{customer.zip}}
+            </h6>
+            <br>
+            <a href="{% url 'update_info'%}" class="btn btn-primary my-2">Update</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{% url 'my_insurance'%}" class="btn btn-primary my-2">My Insurance</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{% url 'my_invoice'%}" class="btn btn-primary my-2">My Invoice</a>
+        </div>
+
+    {% endblock content %}
+</body>
+</html>

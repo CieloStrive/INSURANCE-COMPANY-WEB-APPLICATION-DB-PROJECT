@@ -1,0 +1,134 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="1E36149E-EFBA-81D1-DAAF-B4118419B854" name="HOME_INSURANCE">
+<createdBy>Shi Siyuan</createdBy>
+<createdTime>2020-03-22 23:24:11 UTC</createdTime>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="INSURANCE_ID" id="7532AA9D-FBE8-B8A1-A719-5FA6E72F6996">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-06 01:01:09 UTC</createdTime>
+<commentInRDBMS><![CDATA[Insurance ID of home  insurance, starts with "H", followed by 9 digits number]]></commentInRDBMS>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CUSTOMER_ID" id="C4F05F20-2BE4-E303-DF02-6D7CBCE4ED01">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-09 18:42:28 UTC</createdTime>
+<commentInRDBMS><![CDATA[Customer id]]></commentInRDBMS>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="START_DATE" id="EB0A2014-9F26-21EF-1B87-777B2B0B98AC">
+<createdBy>Shi Siyuan</createdBy>
+<createdTime>2020-03-22 23:26:21 UTC</createdTime>
+<commentInRDBMS><![CDATA[start date of home insurance policy]]></commentInRDBMS>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="END_DATE" id="7DAD2AD7-ADA8-0FF9-A5D3-58F0CF83DDC8">
+<createdBy>Shi Siyuan</createdBy>
+<createdTime>2020-03-22 23:26:56 UTC</createdTime>
+<commentInRDBMS><![CDATA[end date of home insurance policy]]></commentInRDBMS>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PREMIUM_AMOUNT" id="8E041EF6-649A-7DC6-B9D8-94805E8A8A30">
+<createdBy>Shi Siyuan</createdBy>
+<createdTime>2020-03-22 23:27:06 UTC</createdTime>
+<commentInRDBMS><![CDATA[home insurance premium amount]]></commentInRDBMS>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="INSURANCE_STATUS" id="E812710A-FA97-54C8-63C1-65D878C8B603">
+<createdBy>Shi Siyuan</createdBy>
+<createdTime>2020-03-22 23:33:31 UTC</createdTime>
+<commentInRDBMS><![CDATA[home policy insurance status. "C" for current, "P" for expired]]></commentInRDBMS>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CUSTOMER_ID1" id="8C6FA40F-F9FC-E22C-E021-01BBEAEF25C5">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-09 18:44:21 UTC</createdTime>
+<generatorID>33673C6E-D6D7-E510-3817-CB84F01002D2</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="false"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>10B21B34-E904-C34A-9FCF-7D5D3AE9531C</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="E0BA386C-406F-63B5-F91D-997686D19063" name="HOME_INSURANCE PK">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-06 01:01:24 UTC</createdTime>
+<ownerDesignName>final</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>7532AA9D-FBE8-B8A1-A719-5FA6E72F6996</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

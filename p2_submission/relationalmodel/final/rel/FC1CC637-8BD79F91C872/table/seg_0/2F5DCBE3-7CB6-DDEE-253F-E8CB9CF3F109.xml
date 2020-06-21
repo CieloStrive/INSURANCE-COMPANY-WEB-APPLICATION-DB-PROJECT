@@ -1,0 +1,94 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2F5DCBE3-7CB6-DDEE-253F-E8CB9CF3F109" name="VEHICLE_DRIVER">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<generatorID>81E452DC-B78A-8836-FD43-B7E604A0E5A4</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="LICENSE_NUM" id="55F51AB4-64C5-A614-61B3-E39B428A405A">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<commentInRDBMS><![CDATA[driver's license number]]></commentInRDBMS>
+<generatorID>F1296C22-E4ED-AA2D-72BB-1D6D3AC36775</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>16</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="520BB327-EB8F-9885-4F6C-19A1895B00A3" referredColumn="E46126E2-A7A6-528C-3791-F170AE41A5A2"/>
+</associations>
+</Column>
+<Column name="VIN" id="5C827638-1657-2324-5491-232E677BD2E1">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<commentInRDBMS><![CDATA[vehicle identification number]]></commentInRDBMS>
+<generatorID>A6E58542-4337-EEBC-86F4-5B269CF9507C</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>17</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2CE7074C-A878-820B-E367-82F19448ECF6" referredColumn="3304DC1D-9D50-8CC6-6A62-21326DDBEE4E"/>
+</associations>
+</Column>
+<Column name="ins_id" id="0E294E72-5AA6-34E1-F74A-B0C7C525F1A5">
+<createdBy>Shi Siyuan</createdBy>
+<createdTime>2020-05-05 19:32:48 UTC</createdTime>
+<commentInRDBMS><![CDATA[insurance id]]></commentInRDBMS>
+<generatorID>CD2B2CA4-9C00-5F44-E2F2-EE69E231CDF9</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E55F6E51-6FC4-6FA7-B5C0-62A4B6C727F8" name="VEHICLE_DRIVER_PK">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<generatorID>EB8A6804-EF9E-715E-EC8A-1E8A092BB8DE</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="55F51AB4-64C5-A614-61B3-E39B428A405A"/>
+<colUsage columnID="5C827638-1657-2324-5491-232E677BD2E1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7EBF3FAB-18A2-0450-6023-FACD85564570" name="VCL_DRI_DRI_FK">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<generatorID>F0E0BDF6-4EAD-7A9A-8DBB-B9F7BCC900B3</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="55F51AB4-64C5-A614-61B3-E39B428A405A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BEA30FB7-7C57-7088-24C3-547E686DB193" name="VCL_DRI_ISD_VCL_FK">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-10 01:56:12 UTC</createdTime>
+<generatorID>C2F34EDA-A689-5905-27C7-630AF7CE308D</generatorID>
+<ownerDesignName>final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5C827638-1657-2324-5491-232E677BD2E1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

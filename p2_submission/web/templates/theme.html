@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  {% load static %}
+  {% load static %} <!--使load静态文件生效-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.6">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
+
+    <!-- Bootstrap core CSS -->  <!--2.去官网首页下面CDN下面的CSSonly吧链接复制过来-->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+  </head>
+  <body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'home_page' %}">
+        <img src=" {% static 'W_letter.png' %} " height = 30>
+        We Do Secure
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ml-auto" >
+
+          {% if user.is_authenticated %}
+            {% if user.is_superuser %}
+                <a class="nav-item nav-link" href=" {% url 'update_ins_status'  %}  ">Update Insurance Status</a>
+                <a class="nav-item nav-link" href=" {% url 'delete_ins'  %}  ">Delete Insurance</a>
+            {% endif %}
+            <a class="nav-item nav-link" href=" {% url 'personal_center'  %}  ">Account</a>
+            <a class="nav-item nav-link" href=" {% url 'enroll'  %}  ">Enroll</a>
+            <!--登出不是GET网页，应该是POST，怎么做成POST呢,提交一个隐藏form，那按钮都隐藏了怎么操作呢，借助下面这一行-->
+            <a class="nav-item nav-link" href="Javascript:{document.getElementById('logoutid').submit()}">Log out</a>
+            <form id='logoutid' method="POST" action=" {% url 'logout' %} " align="center">
+                <!--做一个隐藏的post通过url给到view里去-->
+                {%csrf_token%} <!--protect from cross site request forgery-->
+                <input type = 'hidden'>
+            </form>
+          {% else %}
+            <a class="nav-item nav-link" href=" {% url 'login'  %}  ">Log in</a>
+            <a class="nav-item nav-link" href=" {% url 'signup'  %}  ">Sign Up</a>
+          <!--路径这样用urls里设置的路径名访问，就不用担心以后路径变化了，始终会指向实现该目的的路径-->
+          {% endif %}
+
+      </div>
+     </div>
+  </nav>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+      {% block content %}
+            Main content here
+      {% endblock content %}
+
+
+  <br>
+  <br>
+<footer class="text-muted">
+  <div class="container">
+    <p class="float-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>This is a WDS official website </p>
+    <p>Feel not so insured? <a href=" {% url 'enroll' %}">Get insured now! We do secure!</a>.</p>
+    <p>Reminder: please click Account at the top to register information before enrolling for insurance.</p>
+  </div>
+</footer>
+
+    <!-- Bootstrap Core JavaScript
+    ===========================================================================-->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  </body>
+</html>
+
+
+

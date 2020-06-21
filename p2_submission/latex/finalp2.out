@@ -1,0 +1,14 @@
+\BOOKMARK [1][-]{section.1}{Development Environments}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Django Logic}{section.1}% 2
+\BOOKMARK [1][-]{section.2}{Database}{}% 3
+\BOOKMARK [2][-]{subsection.2.1}{Relational Model}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.2}{DDL code}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Features}{}% 6
+\BOOKMARK [2][-]{subsection.3.1}{Register, Login and Logout}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.2}{Update | Personal Center}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.3}{Insert | Purchase}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.4}{Query | Insurance,Invoice \046 Payment}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.5}{Delete | Superuser Function}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.6}{Extra Feature Summary}{section.3}% 12
+\BOOKMARK [1][-]{section.4}{Learning Outcome}{}% 13
+\BOOKMARK [1][-]{section.5}{Other}{}% 14

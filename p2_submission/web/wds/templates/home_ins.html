@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Home Insurance</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+<body>
+    {% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+    <br>
+    {% block content %}
+
+    <div class="container">
+        <h2 align="center">Please fill up basic information</h2>
+        <br>
+        <form method="post" action="{% url 'home_ins' %}">
+            {% csrf_token %}
+
+            <div class="tab">
+                <div class="start date">
+                    Start Date: <input type="date" name="start_date" id="s" required/>
+                </div>
+                <br>
+<!--                <div class="end date">-->
+<!--                    End Date: <input type="date"  name="end_date" id="e" required>-->
+<!--                    <br>-->
+<!--                    <small>We strongly recommend you to get insured at least for a year</small>-->
+<!--                </div>-->
+                <div class="period_year">
+                    <label for="period_year">Insured Year: </label>
+                    <select name="period_year" id="period_year" required>
+                        <option value=0.5>half</option>
+                        <option value=1>one</option>
+                        <option value=2>two</option>
+                        <option value=3>three</option>
+                    </select>
+                    years
+                    <br>
+                    <small>We strongly recommend you to get insured at least for 1 year</small>
+                </div>
+                <br>
+                <div class="premium amount">
+                    <label for="premium_amount">Premium Amount: </label>
+                    <select name="premium_amount" id="premium_amount" required>
+                        <option value=2000.00>2000.00</option>
+                        <option value=4000.00>4000.00</option>
+                        <option value=6000.00>6000.00</option>
+                        <option value=8000.00>8000.00</option>
+                    </select>
+                    US dollars
+                    <br>
+                    <small>Premium amount / period equals amount we insured for each month</small>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Next Step</button>
+            </div>
+        </form>
+        <br>
+        <div class="border-top pt-3">
+            <small class="text-muted">Your house has been insured before? </small>
+            <a class="btn btn-outline-info" href="pa_home_ins">Purchase Again</a>
+
+        </div>
+    </div>
+    <script>
+        var dtToday = new Date();
+
+        var month = dtToday.getMonth() + 1;
+        var day = dtToday.getDate();
+        var year = dtToday.getFullYear();
+        if(month < 10)
+            month = '0' + month.toString();
+        if(day < 10)
+            day = '0' + day.toString();
+
+        var minDate = year + '-' + month + '-' + day;
+        $('#s').attr('min', minDate);
+    </script>
+
+    <script>
+        $("#s").change(function(){
+            $('#e').attr('min', $('#s').val());
+        });
+    </script>
+
+
+    {% endblock content %}
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Home Record</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+<body>
+    {% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+    <br>
+    {% block content %}
+
+    <div class="container">
+        <h2 align="center">Fake</h2>
+        <br>
+        <form method="post" action="{% url 'home_record' %}">
+            {% csrf_token %}
+            <div class="start date">
+                Start Date: <input type="date" name = "start_date" id="s" required/>
+            </div>
+            <br>
+            <div class="end date">
+                End Date: <input type="date"  name = "end_date" id="e" required>
+                <br>
+                <small>We strongly recommend you to...</small>
+            </div>
+            <br>
+            <div class="premium amount">
+                Premium Amount: <input type="number" list="P_A" name="premium_amount" required/>
+                <datalist id="P_A">
+                    <option></option>
+                    <option>2000</option>
+                    <option>4000</option>
+                    <option>6000</option>
+                    <option>8000</option>
+                </datalist>
+                US dollars
+            </div>
+            <br>
+            <input class="btn-primary" type="submit" value = "Next Step">
+        </form>
+    </div>
+    <script>
+        var dtToday = new Date();
+
+        var month = dtToday.getMonth() + 1;
+        var day = dtToday.getDate();
+        var year = dtToday.getFullYear();
+        if(month < 10)
+            month = '0' + month.toString();
+        if(day < 10)
+            day = '0' + day.toString();
+
+        var minDate = year + '-' + month + '-' + day;
+        $('#s').attr('min', minDate);
+    </script>
+
+    <script>
+    $("#s").change(function(){
+        $('#e').attr('min', $('#s').val());
+    });
+    </script>
+
+    {% endblock content %}
+</body>
+
+</html>

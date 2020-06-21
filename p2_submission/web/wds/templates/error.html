@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Error</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+<body>
+    {% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+    <br>
+    {% block content %}
+    <div class="container">
+        <p style="color:red"><h1>Please register your personal information first! </h1></p>
+        <br>
+        <a href="{% url 'personal_center' %}" class="btn btn-primary">Go to my account</a>
+    </div>
+    {% endblock content %}
+</body>
+
+</html>

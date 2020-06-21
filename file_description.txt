@@ -1,0 +1,5 @@
+Project_Part_1_Spring_2020_6083B---Part I Requirement
+Project_Part_2_Spring_2020_6083B---Part II Requirement
+p1_submission----------Part I : Database Design and Test
+p2_submission----------Part II: Build Website logic, connected to database, beautify
+report-----------------Final report of the whole project(also contained in p2_submission)

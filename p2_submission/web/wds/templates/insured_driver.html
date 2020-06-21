@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Driver Information</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+<body>
+    {% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+    <br>
+    {% block content %}
+
+    <div class="container">
+        <h2 align="center">Please fill up basic information</h2>
+        <br>
+        <small>Follow procedures to add vehicle(s) and driver(s)</small>
+        <br>
+
+        <form id="driverForm" method="post" action="{% url 'insured_driver' %}">
+            {% csrf_token %}
+            <div class="license_num">
+                License: <input type="text" name = "license_num" id="license_num"  maxlength="16"required/>
+                {{checklicense}}
+                <br>
+                <small>Please fill up with license of 16 characters</small>
+            </div>
+            <br>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Save/Add More</button>
+            </div>
+            <br>
+        </form>
+
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                If you come from filling driver license page, you can click <a class="ml-2" href="{% url 'pa_auto_ins' %}">Purchase Again</a> after registerint all drivers.
+            </small>
+        </div>
+    </div>
+
+    {% endblock content %}
+</body>
+
+</html>

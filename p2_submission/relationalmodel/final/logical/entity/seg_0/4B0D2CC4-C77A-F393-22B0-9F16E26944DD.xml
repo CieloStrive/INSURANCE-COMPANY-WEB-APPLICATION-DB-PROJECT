@@ -1,0 +1,177 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4B0D2CC4-C77A-F393-22B0-9F16E26944DD" name="CUSTOMER">
+<createdBy>Shi Siyuan</createdBy>
+<createdTime>2020-03-22 22:23:09 UTC</createdTime>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<generateDiscrimColumn>true</generateDiscrimColumn>
+<discriminatorAttributeID>FDA5B93B-A6E9-969A-DC3F-094A7F1AC5B1</discriminatorAttributeID>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="CUSTOMER_ID" id="10B21B34-E904-C34A-9FCF-7D5D3AE9531C">
+<createdBy>Shi Siyuan</createdBy>
+<createdTime>2020-03-22 22:24:04 UTC</createdTime>
+<commentInRDBMS><![CDATA[customer's id]]></commentInRDBMS>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="FIRST_NAME" id="7BA2D402-873F-F2B2-EF4C-F853827A9CE7">
+<createdBy>Shi Siyuan</createdBy>
+<createdTime>2020-03-22 22:24:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[customer's first name]]></commentInRDBMS>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="LAST_NAME" id="59B834BA-102F-F595-9EF5-7C841A297891">
+<createdBy>Shi Siyuan</createdBy>
+<createdTime>2020-03-22 22:25:38 UTC</createdTime>
+<commentInRDBMS><![CDATA[customer's last name]]></commentInRDBMS>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="GENDER" id="CAADB043-0E5F-0706-36CC-F6C8B76A5A8E">
+<createdBy>Shi Siyuan</createdBy>
+<createdTime>2020-03-22 22:26:57 UTC</createdTime>
+<commentInRDBMS><![CDATA[customer's gender, must be either “M”, or “F” representing “Male” or “Female”.If it is NULL,means not provided]]></commentInRDBMS>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="MARITAL_STATUS" id="1F8A7112-8151-7D40-0E60-1ACC273C5AF3">
+<createdBy>Shi Siyuan</createdBy>
+<createdTime>2020-03-22 22:28:03 UTC</createdTime>
+<commentInRDBMS><![CDATA[customer's marital status, the possible data value of marital status must be either “M”, “S”, or “W”, representing “Married”, “Single”, and “Widow/Widower” respectively.]]></commentInRDBMS>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CUSTOMER_TYPE" id="FDA5B93B-A6E9-969A-DC3F-094A7F1AC5B1">
+<createdBy>Shi Siyuan</createdBy>
+<createdTime>2020-03-22 22:29:08 UTC</createdTime>
+<commentInRDBMS><![CDATA[customer type, can be auto or home or both. “A” represents Automobile Insurance customer and “H” represents Home insurance customer, "B" represents both.]]></commentInRDBMS>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2</dataTypeSize>
+<ownDataTypeParameters>2,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CITY" id="A8170011-8C4B-C387-01A5-31DAD5762610">
+<createdBy>Shi Siyuan</createdBy>
+<createdTime>2020-03-22 22:26:24 UTC</createdTime>
+<commentInRDBMS><![CDATA[customer's living city]]></commentInRDBMS>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="STATE" id="F67D7C07-4A25-69F3-D251-17594D02F756">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-06 02:37:07 UTC</createdTime>
+<commentInRDBMS><![CDATA[customers' state]]></commentInRDBMS>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2</dataTypeSize>
+<ownDataTypeParameters>2,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="STREET" id="0FD6DB12-98A7-7473-B776-C29F76F4C428">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-06 02:37:47 UTC</createdTime>
+<commentInRDBMS><![CDATA[customers' street]]></commentInRDBMS>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ZIP" id="786BB4A9-7A5D-7B21-CBF0-174A1B00F291">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-06 02:38:05 UTC</createdTime>
+<commentInRDBMS><![CDATA[Zip code]]></commentInRDBMS>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="06F15833-85E1-E57C-2805-DE409780859E" name="CUSTOMER PK">
+<createdBy>Shi Siyuan</createdBy>
+<createdTime>2020-03-22 22:24:36 UTC</createdTime>
+<ownerDesignName>final</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>10B21B34-E904-C34A-9FCF-7D5D3AE9531C</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

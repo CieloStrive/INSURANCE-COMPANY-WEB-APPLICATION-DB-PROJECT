@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="AUTO_INVOICE_PAYMENT" directorySegmentName="seg_0" id="78D23F5C-D8CB-68D9-9753-69C344C07C45">
+<createdBy>haoti</createdBy>
+<createdTime>2020-04-06 02:11:46 UTC</createdTime>
+<ownerDesignName>final</ownerDesignName>
+<engineerTo>
+<item key="FC1CC637-AB4F-77FF-4FC5-8BD79F91C872" value="true"/>
+</engineerTo>
+<sourcePk>281AC38E-7747-B8F9-D792-859D258BE996</sourcePk>
+<targetPk>DCD169C5-8474-3B59-C995-1622E358B6E6</targetPk>
+<dominantRole>17150146-3814-28DD-D051-EDDFD846497A</dominantRole>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>17150146-3814-28DD-D051-EDDFD846497A</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>CF195C60-BC46-831C-5883-E9CFD5F40DC7</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

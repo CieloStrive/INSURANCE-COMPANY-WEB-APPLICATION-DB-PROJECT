@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDS| Home Information</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+<body>
+    {% extends "theme.html" %} <!--引入拓展写好的模板主题-->
+    <br>
+    {% block content %}
+
+    <div class="container">
+        <h2 align="center">Please fill up basic information</h2>
+        <br>
+
+        <form id="homeForm" method="post" action="{% url 'pa_insured_home' %}">
+            {% csrf_token %}
+            <div class="home id">
+                Home ID : <input type="number" step="1" min=0 max=9999999999 name = "home_id" required/>
+                {{ check3 }}
+                <br>
+                <small>The unique identifier of your deed</small>
+            </div>
+            <br>
+            <p style="color:red">{{ check3 }}</p>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Save and Add</button>
+            </div>
+            <br>
+        </form>
+    </div>
+    <script>
+        var dtToday = new Date();
+
+        var month = dtToday.getMonth() + 1;
+        var day = dtToday.getDate();
+        var year = dtToday.getFullYear();
+        if(month < 10)
+            month = '0' + month.toString();
+        if(day < 10)
+            day = '0' + day.toString();
+
+        var maxDate = year + '-' + month + '-' + day;
+        $('#s').attr('max', maxDate);
+    </script>
+    <script>
+        parseFloat($("#hpv").val()).toFixed(2)
+    </script>
+
+
+    {% endblock content %}
+</body>
+
+</html>
